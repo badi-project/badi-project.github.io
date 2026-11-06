@@ -1,0 +1,1492 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://badi-project.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://badi-project.github.io/">
+<meta property="og:title" content="Badi Megueni-Tani">
+<meta property="og:description" content="Badi Megueni-Tani — science des matériaux : recherche sur l'oxyde à haute entropie (FeCoNiCrMn)₃O₄, plateforme heo-platform et projets logiciels.">
+<meta property="og:image" content="https://badi-project.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Badi Megueni-Tani</title>
+<meta name="description" content="Badi Megueni-Tani — science des matériaux, recherche sur l'oxyde à haute entropie (FeCoNiCrMn)3O4 et projets logiciels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-bleed bands (night / paper / mist) like a product page, left-aligned headline stacks,
+   one live spinel unit cell as the hero object; colour comes only from the five cations' pigments. */
+:root{
+  --paper:#ffffff; --mist:#f2f3f6; --surface:#ffffff; --chip-on:#ffffff;
+  --ink:#1b1c1f; --ink-2:#555861; --ink-3:#8a8d95; --line:#dcdee4;
+  --cobalt:#1747c9;
+  --water:#eef2f8; --glass:#c3c8d2;
+  --shadow:0 1px 2px rgba(20,24,34,.08),0 10px 30px rgba(20,24,34,.07);
+  --night:#000000; --night-2:#141518; --night-3:#202125; --night-ink:#f5f5f7; --night-ink-2:#a3a6ad; --night-ink-3:#6f727a; --night-line:#2a2b30; --cobalt-night:#7aa2ff;
+  --nav-bg:rgba(22,22,24,.78); --nav-solid:#161618;
+  /* the five cations, coloured after a well-known pigment or salt of each element */
+  --cr:#e2a21a; --mn:#9156da; --fe:#c95a2c; --co:#2d5de6; --ni:#2f9d69; --teal:#2a98ad; --oxy:#d4d7de;
+  --cv:#5b1fb8; --uv:#8b5cf6; --blue450:#2f6bff;
+  --tv-bezel:#0b0b0d; --tv-bg:#050507;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Geist","Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  --t-h2:clamp(2.1rem,5.8vw,4.6rem);
+  --t-lead:clamp(1.25rem,2.3vw,1.75rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#000000; --mist:#0e0f12; --surface:#17181c; --chip-on:#2b2d33;
+    --ink:#f5f5f7; --ink-2:#a6a9b0; --ink-3:#74777f; --line:#2a2c31;
+    --cobalt:#7aa2ff; --water:#1a1d24; --glass:#3c404a;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.4);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#000000; --mist:#0e0f12; --surface:#17181c; --chip-on:#2b2d33;
+  --ink:#f5f5f7; --ink-2:#a6a9b0; --ink-3:#74777f; --line:#2a2c31;
+  --cobalt:#7aa2ff; --water:#1a1d24; --glass:#3c404a;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.4);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--nav-solid)}
+:root[data-lang="en"] .fr{display:none!important}
+:root:not([data-lang="en"]) .en{display:none!important}
+a{color:var(--cobalt);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.18em}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+[id]{scroll-margin-top:64px}
+h1,h2,h3,p,figure,ol,ul,dl,dd{margin:0}
+ol,ul{padding:0;list-style:none}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(72px,10vw,140px)}
+.paper{background:var(--paper)}
+.mist{background:var(--mist)}
+.night{--ink:var(--night-ink);--ink-2:var(--night-ink-2);--ink-3:var(--night-ink-3);--line:var(--night-line);--cobalt:var(--cobalt-night);--surface:var(--night-2);--chip-on:var(--night-3);background:var(--night);color:var(--ink);color-scheme:dark}
+.stack{display:flex;flex-direction:column;gap:clamp(40px,6vw,72px)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--nav-bg);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--night-line);color:var(--night-ink)}
+.nav-in{display:flex;align-items:center;gap:26px;height:50px}
+.brand{font-weight:600;font-size:15px;letter-spacing:-.01em;color:var(--night-ink);margin-right:auto;white-space:nowrap}
+.brand:hover{text-decoration:none}
+.links{display:flex;gap:24px}
+.links a{font-size:13px;color:var(--night-ink-2)}
+.links a:hover{color:var(--night-ink);text-decoration:none}
+.lang{display:flex;gap:2px;border:1px solid var(--night-line);border-radius:999px;padding:2px}
+.lang button{font:500 12px/1 var(--mono);color:var(--night-ink-2);background:none;border:0;padding:6px 9px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--night-ink);color:var(--night)}
+@media (max-width:680px){.links{display:none}}
+
+/* shared type */
+.eyebrow{font:500 13px/1.4 var(--mono);color:var(--ink-2);letter-spacing:.01em}
+.h2{font-size:var(--t-h2);font-weight:700;letter-spacing:-.042em;line-height:1.02;text-wrap:balance}
+.h2 .dim,.lead .dim{color:var(--ink-3)}
+.head{display:flex;flex-direction:column;gap:18px;max-width:900px}
+.lead{font-size:var(--t-lead);font-weight:600;letter-spacing:-.02em;line-height:1.25;color:var(--ink);max-width:34ch;text-wrap:pretty}
+.body{color:var(--ink-2);max-width:62ch}
+.body+.body{margin-top:14px}
+.fine{font-size:13px;line-height:1.5;color:var(--ink-2)}
+.chev{font-weight:500;white-space:nowrap}
+.chev::after{content:" ›"}
+.linkrow{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:17px}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,80px) clamp(56px,8vw,104px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(16px,4vw,56px);align-items:center}
+.hero-copy{container-type:inline-size;min-width:0}
+.status{display:inline-flex;align-items:center;gap:9px;font:500 12.5px/1.35 var(--mono);color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:7px 13px 7px 11px;margin-bottom:28px}
+.status i{width:7px;height:7px;flex:none;border-radius:50%;background:var(--ni);box-shadow:0 0 0 3px color-mix(in srgb,var(--ni) 28%,transparent)}
+.hero-name{font-size:clamp(2.75rem,14.2cqi,7rem);font-weight:700;letter-spacing:-.05em;line-height:.93}
+.hero-name span{display:block}
+.hero-lead{font-size:clamp(1.3rem,4.6cqi,2rem);font-weight:600;letter-spacing:-.022em;line-height:1.18;margin-top:30px;max-width:21em}
+.hero-lead .dim{color:var(--ink-2)}
+.hero-sub{color:var(--ink-2);margin-top:18px;max-width:44ch}
+.ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;background:var(--co);color:#fff;font-weight:500;font-size:16px;padding:11px 22px;border-radius:999px}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.crystal{position:relative;min-width:0}
+.crystal canvas{display:block;width:100%;max-width:560px;aspect-ratio:1/1;margin-inline:auto;touch-action:pan-y;cursor:grab}
+.crystal canvas:active{cursor:grabbing}
+.crystal figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:400 12px/1.4 var(--mono);color:var(--ink-2);max-width:560px;margin:4px auto 0}
+.elements-wrap{margin-top:clamp(28px,5vw,56px);display:flex;flex-direction:column;gap:16px}
+.elements{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.el-tile{appearance:none;text-align:left;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px 14px;cursor:pointer;display:grid;grid-template-columns:1fr auto;grid-template-areas:"z sw" "sym sym" "nm nm" "pg pg";row-gap:2px;transition:border-color .2s,transform .2s,background-color .2s;min-width:0}
+.el-tile:hover,.el-tile[aria-pressed="true"]{border-color:var(--c);transform:translateY(-2px)}
+.el-tile[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 14%,var(--surface))}
+.el-tile .z{grid-area:z;font:500 12px/1 var(--mono);color:var(--ink-2)}
+.el-tile .sw{grid-area:sw;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--c) 40%,#fff),var(--c) 55%,color-mix(in srgb,var(--c) 55%,#000))}
+.el-tile .sym{grid-area:sym;font-size:clamp(22px,3.4vw,34px);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-top:6px}
+.el-tile .nm{grid-area:nm;font-size:14px;font-weight:500}
+.el-tile .pg{grid-area:pg;font-size:12.5px;color:var(--ink-2);line-height:1.35}
+.elements-note{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+.elements-note p{font-size:14px;color:var(--ink-2);max-width:62ch}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.crystal canvas{max-width:440px}}
+@media (max-width:560px){.el-tile{padding:10px 8px 10px;grid-template-areas:"z sw" "sym sym"}.el-tile .nm,.el-tile .pg{display:none}}
+
+/* research */
+.formula{font-size:clamp(2rem,6.4vw,4.4rem);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.formula .el{text-decoration:underline;text-decoration-color:var(--c);text-decoration-thickness:.085em;text-underline-offset:.16em;text-decoration-skip-ink:none}
+.formula sub{font-size:.5em;vertical-align:-.28em;line-height:0;margin-left:.02em}
+.fe{--c:var(--fe)}.co{--c:var(--co)}.ni{--c:var(--ni)}.cr{--c:var(--cr)}.mn{--c:var(--mn)}
+.reveal{font-size:clamp(1.3rem,2.6vw,2rem);font-weight:600;letter-spacing:-.02em;line-height:1.3;max-width:30em;text-wrap:pretty}
+.reveal .w{transition:color .3s}
+.reveal .w.dim{color:var(--ink-3)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;counter-reset:s}
+.steps li{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.steps .n{font:500 13px/1 var(--mono);color:var(--ink-3)}
+.steps h3{font-size:21px;font-weight:600;letter-spacing:-.015em;margin-top:6px}
+.steps p{font-size:15px;color:var(--ink-2)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.stat{container-type:inline-size;min-width:0;display:flex;flex-direction:column;gap:10px}
+.stat .stat-num{font-size:clamp(2rem,17cqi,3.5rem);color:var(--ink);max-width:none;font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.stat-num small{font-size:.48em;font-weight:600;letter-spacing:-.01em;color:var(--ink-2);margin-left:.12em}
+.stat p{font-size:15px;color:var(--ink-2);max-width:26ch}
+.source{font-size:13px;color:var(--ink-2)}
+@media (max-width:980px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+
+/* microscopy */
+.micro-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:20px}
+.card{background:var(--surface);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card img{display:block;width:100%;height:auto}
+.card .cap{padding:18px 22px 22px;display:flex;flex-direction:column;gap:6px}
+.card .cap .mono{font-size:12px;color:var(--ink-2)}
+.card .cap p{font-size:15.5px;color:var(--ink);max-width:52ch}
+.c-sem{grid-column:1;grid-row:1}
+.c-xrd{grid-column:1;grid-row:2}
+.c-tem{grid-column:2;grid-row:1/3}
+.c-tem .ph{position:relative;flex:1 1 auto;min-height:360px}
+.c-tem .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.xrd-box{padding:18px 18px 0;overflow-x:auto}
+#xrd{display:block;width:100%;min-width:480px;height:auto;cursor:crosshair}
+#xrd .ax{stroke:var(--ink-3);stroke-width:1}
+#xrd .tk{fill:var(--ink-2);font:400 11px var(--mono)}
+#xrd .hkl{fill:var(--ink-2);font:500 10.5px var(--mono)}
+#xrd .bragg{stroke:var(--cr);stroke-width:1.6}
+#xrd-line{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}
+#xrd-area{fill:url(#xrdGrad);stroke:none}
+#xrd-cur line{stroke:var(--ink);stroke-opacity:.45;stroke-width:1;stroke-dasharray:3 3}
+#xrd-cur text{fill:var(--ink);font:500 11.5px var(--mono)}
+@media (max-width:860px){.micro-grid{grid-template-columns:1fr}.c-sem,.c-xrd,.c-tem{grid-column:auto;grid-row:auto}.c-tem .ph{flex:none;min-height:0;aspect-ratio:398/583;max-width:100%}}
+
+/* photocatalysis */
+.pc-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.pc-copy{display:flex;flex-direction:column;gap:20px;min-width:0}
+.pc-lab{background:var(--surface);border-radius:26px;padding:clamp(18px,3vw,28px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:18px;min-width:0}
+.seg{display:flex;flex-wrap:wrap;gap:4px;background:var(--mist);padding:4px;border-radius:12px}
+.seg button{flex:1 1 auto;appearance:none;border:0;background:transparent;color:var(--ink-2);font:500 13px/1.25 var(--sans);padding:9px 10px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.seg button i{width:8px;height:8px;border-radius:50%;background:var(--d)}
+.seg button[aria-pressed="true"]{background:var(--chip-on);color:var(--ink);box-shadow:var(--shadow)}
+.pc-stage{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:end}
+.cuvette-wrap{position:relative;display:flex;justify-content:center;padding-top:26px}
+.cuvette-wrap .led{position:absolute;top:0;left:50%;width:30px;height:10px;margin-left:-15px;border-radius:4px 4px 2px 2px;background:var(--glow)}
+.cuvette-wrap .halo{position:absolute;top:-10px;left:50%;width:120px;height:150px;margin-left:-60px;background:radial-gradient(closest-side,color-mix(in srgb,var(--glow) 38%,transparent),transparent);pointer-events:none}
+.cuvette{position:relative;width:64px;height:170px;border:2px solid var(--glass);border-top:0;border-radius:0 0 12px 12px;overflow:hidden;background:color-mix(in srgb,var(--water) 60%,transparent)}
+#pc-liquid{position:absolute;inset:auto 0 0 0;height:80%;background:var(--cv);transition:background-color .25s}
+#pc-liquid::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:color-mix(in srgb,var(--surface) 35%,transparent)}
+#pc-chart{display:block;width:100%;height:auto}
+#pc-chart .gl{stroke:var(--line);stroke-width:1}
+#pc-chart .ax{stroke:var(--ink-3);stroke-width:1}
+#pc-chart .tk{fill:var(--ink-2);font:400 11px var(--mono)}
+#pc-chart .curve{fill:none;stroke-width:2;opacity:.28;stroke-linecap:round;stroke-linejoin:round}
+#pc-chart .curve.on{stroke-width:3;opacity:1}
+#pc-chart .curve[data-m="tio2"]{stroke-dasharray:5 5}
+#pc-guide{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:3 3}
+#pc-dot{stroke:var(--surface);stroke-width:2.5}
+#pc-out{font:500 13px/1.4 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;min-height:1.4em}
+.range{display:flex;flex-direction:column;gap:8px}
+.range label{font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between;gap:12px}
+.range input{width:100%;accent-color:var(--cobalt)}
+@media (max-width:860px){.pc-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.pc-stage{grid-template-columns:72px minmax(0,1fr);gap:10px}.cuvette{width:52px;height:150px}}
+
+/* cambridge */
+.cam{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.cite{border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:14px;background:var(--surface)}
+.cite h3{font-size:clamp(19px,2vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.cite .authors{font-size:15.5px;color:var(--ink)}
+.cite .authors b{font-weight:600;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.2em}
+.cite .aff{font-size:13.5px;color:var(--ink-2)}
+.cite .tag{font:500 12px var(--mono);color:var(--ink-2)}
+@media (max-width:860px){.cam{grid-template-columns:1fr}}
+
+/* heo-platform */
+.map-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.map-card{background:var(--surface);border-radius:24px;padding:clamp(14px,2vw,22px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;min-width:0}
+.map-canvas{position:relative}
+#map{display:block;width:100%;aspect-ratio:4/3;max-width:100%}
+#map-tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);border-radius:10px;padding:8px 11px;font-size:13px;line-height:1.35;white-space:nowrap;box-shadow:var(--shadow);z-index:2}
+#map-tip b{display:block;font-weight:600;font-family:var(--mono);font-size:12.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 12.5px/1 var(--sans);padding:7px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;cursor:pointer}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--d)}
+.chip .k{font-family:var(--mono);color:var(--ink-2);font-size:11.5px}
+.chip[aria-pressed="false"]{opacity:.42}
+.chip[aria-pressed="false"] i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--d)}
+.map-side{display:flex;flex-direction:column;gap:20px;padding-top:8px}
+.big{font-size:clamp(4.5rem,10vw,7.5rem);font-weight:700;letter-spacing:-.05em;line-height:.9;color:var(--co);font-variant-numeric:tabular-nums}
+.map-side .lead{font-size:clamp(1.15rem,1.8vw,1.4rem)}
+.pipeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 28px}
+.pipeline li{container-type:inline-size;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pipeline .n{font:500 13px/1 var(--mono);color:var(--ink-3)}
+.pipeline .v{font-size:clamp(1.8rem,13cqi,2.6rem);font-weight:700;letter-spacing:-.035em;line-height:1.05;font-variant-numeric:tabular-nums;margin-top:8px}
+.pipeline p{font-size:15px;color:var(--ink-2)}
+@media (max-width:900px){.map-grid{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){#map{aspect-ratio:1/1.05}}
+@media (max-width:480px){.pipeline{grid-template-columns:1fr}}
+
+/* heo-platform v1.1 : calcul */
+.phys-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:20px;align-items:stretch}
+.panel{background:var(--surface);border-radius:24px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:16px;min-width:0}
+.panel h3{font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1.2;text-wrap:balance}
+.panel .txt{font-size:15.5px;color:var(--ink-2);max-width:60ch}
+.kpi{font-size:clamp(3rem,7vw,5.25rem);font-weight:700;letter-spacing:-.05em;line-height:.95;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi.cr{color:var(--cr)}
+.cmp{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.cmp div{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) 4.2rem;gap:12px;align-items:center;font-size:13.5px;color:var(--ink-2)}
+.cmp .bar{height:10px;border-radius:5px;background:var(--line);position:relative;overflow:hidden}
+.cmp .bar i{position:absolute;inset:0 auto 0 0;width:var(--w);border-radius:5px;background:var(--c)}
+.cmp b{font:500 13px var(--mono);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.subs{display:flex;flex-direction:column;gap:2px}
+.srow{appearance:none;border:0;background:transparent;color:var(--ink);font:inherit;cursor:pointer;display:grid;grid-template-columns:7.2rem minmax(0,1fr) 5.4rem;gap:12px;align-items:center;padding:9px 10px;border-radius:12px;text-align:left}
+.srow:hover{background:var(--chip-on)}
+.srow[aria-pressed="true"]{background:var(--chip-on)}
+.srow .slab{font-weight:600;font-size:15px;white-space:nowrap}
+.srow .sval{font:500 13px var(--mono);color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.strack{position:relative;height:22px}
+.strack::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.strack .err{position:absolute;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:var(--c);opacity:.38}
+.strack .dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px var(--surface)}
+.srow[aria-pressed="true"] .dot{transform:scale(1.25)}
+.saxis{display:grid;grid-template-columns:7.2rem minmax(0,1fr) 5.4rem;gap:12px;padding:0 10px}
+.saxis .ticks{position:relative;height:18px;border-top:1px solid var(--ink-3)}
+.saxis .ticks span{position:absolute;top:4px;transform:translateX(-50%);font:400 11px var(--mono);color:var(--ink-2);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.legend i.dia{border-radius:2px;transform:rotate(45deg);width:9px;height:9px}
+#sub-out{font:500 13px/1.5 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;min-height:3em}
+.tri{--c:var(--teal)}.di{--c:var(--fe)}.ref{--c:var(--cr)}
+.oer-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(20px,4vw,48px);align-items:center}
+#oer{display:block;width:100%;height:auto;overflow:visible}
+#oer .ax{stroke:var(--ink-3);stroke-width:1}
+#oer .tk{fill:var(--ink-2);font:400 11px var(--mono)}
+#oer .rng{stroke:var(--co);stroke-width:2}
+#oer .rngt{fill:var(--ink);font:600 13px var(--sans)}
+#oer a circle{fill:var(--co);stroke:var(--surface);stroke-width:2.5;transition:r .15s}
+#oer a:hover circle,#oer a:focus circle{r:10}
+#oer a:focus{outline:none}
+#oer-out{font:500 12.5px/1.5 var(--mono);color:var(--ink-2);min-height:1.5em;overflow-wrap:anywhere}
+.al-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(20px,4vw,48px);align-items:center}
+.dumb{display:flex;flex-direction:column;gap:18px}
+.drow{display:grid;grid-template-columns:minmax(0,10.8rem) minmax(0,1fr);gap:6px 16px;align-items:center}
+.drow .comp{font-weight:600;font-size:15px;line-height:1.25}
+.drow .verdict{grid-column:2;font-size:13px;color:var(--ink-2)}
+.dtrack{position:relative;height:26px}
+.dtrack::before{content:"";position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;border-radius:3px;background:linear-gradient(90deg,color-mix(in srgb,var(--co) 55%,transparent),color-mix(in srgb,var(--ni) 55%,transparent))}
+.dtrack::after{content:"";position:absolute;left:50%;top:2px;bottom:2px;width:1px;background:var(--ink-3)}
+.dtrack .link{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--ink)}
+.dtrack .m{position:absolute;top:50%;z-index:1}
+.dtrack .clf{width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2.5px var(--surface)}
+.dtrack .chg{width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:2px;transform:rotate(45deg);background:var(--cr);box-shadow:0 0 0 2.5px var(--surface)}
+.daxis{display:grid;grid-template-columns:minmax(0,10.8rem) minmax(0,1fr);gap:16px}
+.daxis div{display:flex;justify-content:space-between;font:400 11.5px var(--mono);color:var(--ink-2)}
+.legend .clfk{--c:var(--ink)}.legend .chgk{--c:var(--cr)}
+@media (max-width:900px){.phys-grid,.oer-wrap,.al-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.srow,.saxis{grid-template-columns:4.6rem minmax(0,1fr) 4.4rem;gap:8px;padding-inline:6px}.srow .slab{font-size:13.5px}.drow{grid-template-columns:minmax(0,1fr)}.drow .verdict{grid-column:1}.daxis{grid-template-columns:minmax(0,1fr)}.daxis>span{display:none}.cmp div{grid-template-columns:minmax(0,7rem) minmax(0,1fr) 3.6rem}}
+
+/* show lumière */
+.stage{position:relative;border-radius:28px;background:radial-gradient(120% 90% at 50% 0%,var(--night-2),var(--night) 70%);border:1px solid var(--night-line);padding:clamp(40px,7vw,80px) 16px clamp(56px,8vw,88px);display:flex;flex-direction:column;align-items:center;gap:clamp(40px,6vw,64px);overflow:hidden}
+.lamps{--ls:clamp(34px,9.5vw,92px);display:flex;justify-content:center;gap:clamp(10px,3vw,34px)}
+.lamp{--lc:rgb(38,39,44);--g:0;position:relative;width:var(--ls);aspect-ratio:1;border-radius:50%;background:var(--lc);box-shadow:0 0 calc(var(--g)*var(--ls)*.95) calc(var(--g)*var(--ls)*.14) var(--lc),inset 0 -5px 12px rgba(0,0,0,.28);transition-property:background-color,box-shadow;transition-duration:1s;transition-timing-function:ease-in-out}
+.lamp::after{content:"";position:absolute;left:8%;right:8%;top:calc(100% + var(--ls)*.28);height:calc(var(--ls)*.16);border-radius:50%;background:var(--lc);filter:blur(10px);opacity:calc(var(--g)*.6);transition:inherit;transition-property:background-color,opacity}
+.picker{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;background:var(--night-2);border:1px solid var(--night-line);padding:4px;border-radius:999px;max-width:100%}
+.picker button{appearance:none;border:0;background:transparent;color:var(--night-ink-2);font:500 13.5px/1.2 var(--sans);padding:9px 14px;border-radius:999px;cursor:pointer}
+.picker button[aria-pressed="true"]{background:var(--night-ink);color:var(--night)}
+.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.feats li{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.feats h3{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.feats p{font-size:15.5px;color:var(--ink-2)}
+.tech{font:400 13px/1.5 var(--mono);color:var(--ink-2)}
+@media (max-width:860px){.feats{grid-template-columns:1fr}}
+@media (max-width:480px){.picker{border-radius:18px}}
+
+/* accueil tv */
+.tv-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);gap:clamp(32px,5vw,64px);align-items:center}
+.facts{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:20px}
+.facts div{display:contents}
+.facts dt,.facts dd{border-top:1px solid var(--line);padding-block:14px}
+.facts dt{font-size:24px;line-height:1.2;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.facts dd{font-size:15px;line-height:1.45;color:var(--ink-2);padding-top:19px}
+.tv{min-width:0;display:flex;flex-direction:column;gap:12px}
+.tv-frame{background:var(--tv-bezel);border-radius:16px;padding:9px;box-shadow:var(--shadow)}
+.screen{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--tv-bg);container-type:inline-size;color:#f5f5f7;font-family:var(--sans)}
+.amb{position:absolute;inset:-25%;background-color:#1d2a4a;filter:blur(30px);transition:background-color 1s ease}
+.screen::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 30%,transparent 25%,rgba(0,0,0,.78));pointer-events:none}
+.tv-top{position:absolute;top:5cqw;left:6cqw;right:6cqw;display:flex;justify-content:space-between;align-items:baseline;z-index:1}
+.tv-top .clock{font-size:5.4cqw;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.tv-top .date{font-size:1.9cqw;color:rgba(245,245,247,.72);margin-top:.3cqw}
+.tv-top .brandtv{font-size:1.8cqw;color:rgba(245,245,247,.6);letter-spacing:.04em}
+.tiles{position:absolute;left:6cqw;right:6cqw;top:28cqw;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2cqw;z-index:1}
+.tile{appearance:none;border:0;padding:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1.6cqw;color:inherit;font:inherit}
+.tile .ic{width:100%;aspect-ratio:16/10;border-radius:1.4cqw;background:linear-gradient(160deg,var(--a),var(--b));display:grid;place-items:center;box-shadow:0 .4cqw 1cqw rgba(0,0,0,.35);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.tile svg{width:34%;height:auto;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tile .tl{font-size:1.75cqw;font-weight:500;opacity:0;transition:opacity .25s}
+.tile.on .ic{transform:scale(1.14) translateY(-.6cqw);box-shadow:0 2.4cqw 4cqw rgba(0,0,0,.55),0 0 0 .25cqw rgba(255,255,255,.85)}
+.tile.on .tl{opacity:1}
+.tile:focus-visible{outline:none}
+@media (max-width:860px){.tv-grid{grid-template-columns:1fr}}
+
+/* studio vidéo */
+.studio-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(32px,6vw,80px);align-items:center}
+.phone{display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0}
+.phone-frame{width:min(300px,76vw);max-width:100%;aspect-ratio:9/16;background:var(--tv-bezel);border-radius:46px;padding:10px;box-shadow:var(--shadow)}
+.phone-frame picture{display:block;width:100%;height:100%}
+.phone-frame img{display:block;width:100%;height:100%;border-radius:37px;object-fit:cover}
+.phone figcaption{text-align:center;max-width:32ch}
+.codes{display:flex;flex-direction:column;gap:12px}
+.code{background:var(--mist);border-radius:16px;padding:14px 16px 16px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.code figcaption{font:500 12px/1.3 var(--mono);color:var(--ink-2)}
+.code pre{margin:0;font:400 12.5px/1.6 var(--mono);color:var(--ink);overflow-x:auto;white-space:pre}
+.code .hl{color:var(--cobalt);font-weight:500}
+.code .q{color:var(--ink-2)}
+.steps.six{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:32px}
+.studio-grid>*{min-width:0}
+@media (max-width:860px){.studio-grid{grid-template-columns:minmax(0,1fr)}.steps.six{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps.six{grid-template-columns:1fr}}
+
+/* other projects */
+.proj{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pcard{background:var(--surface);border-radius:24px;padding:clamp(24px,3.4vw,40px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.pcard h3{font-size:clamp(24px,2.8vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.pcard p{color:var(--ink-2);font-size:16px}
+.pcard .detail{border-left:2px solid var(--line);padding-left:14px;font-size:15px}
+.figs{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:4px}
+.figs div{display:flex;flex-direction:column}
+.figs b{font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.035em;font-variant-numeric:tabular-nums;line-height:1.1}
+.figs div>span{font-size:13px;color:var(--ink-2)}
+.pcard p.eyebrow{font-size:13px}
+.pcard .linkrow{margin-top:auto;padding-top:8px;font-size:16px}
+@media (max-width:860px){.proj{grid-template-columns:1fr}}
+
+/* path */
+.timeline li{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:8px 32px;padding:26px 0;border-top:1px solid var(--line)}
+.timeline li:last-child{border-bottom:1px solid var(--line)}
+.timeline .when{font:500 14px/1.5 var(--mono);color:var(--ink-2);font-variant-numeric:tabular-nums;margin-top:0}
+.timeline .where{font:400 12.5px/1.5 var(--mono);color:var(--ink-3);margin-top:2px}
+.timeline h3{font-size:clamp(19px,2vw,22px);font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.timeline p{color:var(--ink-2);font-size:16px;margin-top:6px;max-width:64ch}
+@media (max-width:640px){.timeline li{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 28px}
+.skills>div{min-width:0}
+.skills h3{font-size:17px;font-weight:600;margin-bottom:10px}
+.skills li{color:var(--ink-2);font-size:15.5px;line-height:1.75}
+.engage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 32px;border-top:1px solid var(--line);padding-top:24px}
+.engage h3{font-size:15.5px;font-weight:600}
+.engage p{font-size:14.5px;color:var(--ink-2);margin-top:4px}
+@media (max-width:860px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.engage{grid-template-columns:1fr}}
+@media (max-width:480px){.skills{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:flex;flex-direction:column;gap:28px}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+#email{font-size:clamp(1.45rem,5vw,3.25rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;user-select:all;-webkit-user-select:all;overflow-wrap:anywhere}
+.copy{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 14px/1 var(--sans);padding:10px 16px;border-radius:999px;cursor:pointer}
+.copy:hover{border-color:var(--ink-2)}
+.copy[data-state="ok"]{border-color:var(--ni);color:var(--ni)}
+.foot{margin-top:clamp(56px,8vw,96px);padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font:400 12.5px/1.5 var(--mono);color:var(--ink-3)}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .hero-name span,.hero-lead{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+  .hero-name span:nth-child(2){animation-delay:.06s}
+  .hero-lead{animation-delay:.12s}
+  @supports (animation-timeline:view()){
+    .lift{animation:lift linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+  }
+}
+@keyframes rise{from{transform:translateY(22px)}to{transform:none}}
+@keyframes lift{from{transform:translateY(40px) scale(.965)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal .w,.lamp,.amb,.tile .ic{transition:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Badi Megueni-Tani</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#recherche"><span class="fr">Recherche</span><span class="en">Research</span></a>
+      <a href="#projets"><span class="fr">Projets</span><span class="en">Projects</span></a>
+      <a href="#parcours"><span class="fr">Parcours</span><span class="en">Path</span></a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-l="fr" aria-pressed="true">FR</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero night" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="status"><i></i><span class="fr">Disponible · thèse CIFRE ou poste d’ingénieur matériaux</span><span class="en">Available · industrial PhD (CIFRE) or materials engineer role</span></p>
+        <h1 class="hero-name"><span>Badi</span><span>Megueni-Tani</span></h1>
+        <p class="hero-lead"><span class="fr">Je fabrique des matériaux au laboratoire, <span class="dim">et j’écris le code qui les étudie.</span></span><span class="en">I make materials in the lab, <span class="dim">and I write the code that studies them.</span></span></p>
+        <p class="hero-sub"><span class="fr">Master Science et Génie des Matériaux, Université de Toulouse, mention Bien. Recherche en Chine et au Japon.</span><span class="en">MSc in Materials Science and Engineering, University of Toulouse, with honours. Research in China and Japan.</span></p>
+        <div class="ctas">
+          <a class="btn" href="#recherche"><span class="fr">Voir la recherche</span><span class="en">See the research</span></a>
+          <a class="chev" href="#projets"><span class="fr">Voir les projets</span><span class="en">See the projects</span></a>
+        </div>
+      </div>
+      <figure class="crystal">
+        <canvas id="lattice" tabindex="0" role="img" data-aria-fr="Maille élémentaire du spinelle (FeCoNiCrMn)3O4 en 3D : 24 sites métalliques occupés au hasard par cinq éléments, 32 atomes d’oxygène. Glissez ou utilisez les flèches pour la faire tourner." data-aria-en="3D unit cell of the (FeCoNiCrMn)3O4 spinel: 24 metal sites randomly occupied by five elements, 32 oxygen atoms. Drag or use the arrow keys to rotate it."></canvas>
+        <figcaption><span><span class="fr">Maille spinelle · Fd-3m · a = 8,328&nbsp;Å</span><span class="en">Spinel unit cell · Fd-3m · a = 8.328&nbsp;Å</span></span><span><span class="fr">Glissez pour la faire tourner</span><span class="en">Drag to rotate</span></span></figcaption>
+      </figure>
+    </div>
+
+    <div class="elements-wrap">
+      <div class="elements" role="group" data-aria-fr="Les cinq cations" data-aria-en="The five cations">
+        <button type="button" class="el-tile cr" data-i="0" aria-pressed="false"><span class="z">24</span><span class="sw"></span><span class="sym">Cr</span><span class="nm"><span class="fr">Chrome</span><span class="en">Chromium</span></span><span class="pg"><span class="fr">jaune de chrome</span><span class="en">chrome yellow</span></span></button>
+        <button type="button" class="el-tile mn" data-i="1" aria-pressed="false"><span class="z">25</span><span class="sw"></span><span class="sym">Mn</span><span class="nm"><span class="fr">Manganèse</span><span class="en">Manganese</span></span><span class="pg"><span class="fr">violet de manganèse</span><span class="en">manganese violet</span></span></button>
+        <button type="button" class="el-tile fe" data-i="2" aria-pressed="false"><span class="z">26</span><span class="sw"></span><span class="sym">Fe</span><span class="nm"><span class="fr">Fer</span><span class="en">Iron</span></span><span class="pg"><span class="fr">ocre rouge</span><span class="en">red ochre</span></span></button>
+        <button type="button" class="el-tile co" data-i="3" aria-pressed="false"><span class="z">27</span><span class="sw"></span><span class="sym">Co</span><span class="nm">Cobalt</span><span class="pg"><span class="fr">bleu de cobalt</span><span class="en">cobalt blue</span></span></button>
+        <button type="button" class="el-tile ni" data-i="4" aria-pressed="false"><span class="z">28</span><span class="sw"></span><span class="sym">Ni</span><span class="nm">Nickel</span><span class="pg"><span class="fr">vert des sels de nickel</span><span class="en">nickel-salt green</span></span></button>
+      </div>
+      <div class="elements-note">
+        <p><span class="fr">Cinq éléments consécutifs du tableau périodique, de Z = 24 à 28, tirés au hasard sur les 24 sites métalliques de la maille. Touchez-en un pour le repérer.</span><span class="en">Five consecutive elements of the periodic table, Z = 24 to 28, drawn at random over the 24 metal sites of the cell. Tap one to find it.</span></p>
+        <p><span class="fr">Chaque couleur reprend un pigment ou un sel connu de l’élément. Le bleu de cobalt, CoAl₂O₄, est lui-même un spinelle.</span><span class="en">Each colour is a well-known pigment or salt of the element. Cobalt blue, CoAl₂O₄, is itself a spinel.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="band paper" id="recherche">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Recherche · Shenyang, 2026</span><span class="en">Research · Shenyang, 2026</span></p>
+      <h2 class="h2"><span class="fr">Un oxyde. Cinq métaux. <span class="dim">Un seul réseau.</span></span><span class="en">One oxide. Five metals. <span class="dim">One lattice.</span></span></h2>
+    </div>
+    <p class="formula" aria-label="(FeCoNiCrMn)3O4">(<span class="el fe">Fe</span><span class="el co">Co</span><span class="el ni">Ni</span><span class="el cr">Cr</span><span class="el mn">Mn</span>)<sub>3</sub>O<sub>4</sub></p>
+    <p class="reveal" id="reveal"><span class="fr">Pendant six mois au centre E²MC de la Northeastern University, j’ai étudié un oxyde à haute entropie dans lequel cinq cations métalliques partagent le même réseau cristallin. J’ai cherché à savoir s’il pouvait servir d’électrocatalyseur pour l’hydrogène vert, et de photocatalyseur sous lumière visible, là où le TiO₂ ne fonctionne plus.</span><span class="en">For six months at the E²MC centre of Northeastern University, I studied a high-entropy oxide in which five metal cations share one crystal lattice. I wanted to know whether it could work as an electrocatalyst for green hydrogen, and as a photocatalyst under visible light, where TiO₂ stops working.</span></p>
+
+    <ol class="steps" aria-label="Synthèse">
+      <li><span class="n">1</span><h3><span class="fr">Cinq oxydes</span><span class="en">Five oxides</span></h3><p>Fe₂O₃, CoO, NiO, Cr₂O₃, MnO</p></li>
+      <li><span class="n">2</span><h3><span class="fr">Broyage</span><span class="en">Ball milling</span></h3><p><span class="fr">300&nbsp;tr/min pendant 5&nbsp;h, dans l’hexane</span><span class="en">300&nbsp;rpm for 5&nbsp;h, in n-hexane</span></p></li>
+      <li><span class="n">3</span><h3><span class="fr">Calcination</span><span class="en">Calcination</span></h3><p><span class="fr">Pastille, 900&nbsp;°C pendant 3&nbsp;h à l’air</span><span class="en">Pellet, 900&nbsp;°C for 3&nbsp;h in air</span></p></li>
+      <li><span class="n">4</span><h3><span class="fr">Spinelle</span><span class="en">Spinel</span></h3><p><span class="fr">Une seule phase cubique, confirmée par DRX</span><span class="en">A single cubic phase, confirmed by XRD</span></p></li>
+    </ol>
+
+    <div class="stack" style="gap:28px">
+      <div class="stats">
+        <div class="stat lift"><p class="stat-num"><span class="fr">2,31</span><span class="en">2.31</span><small>eV</small></p><p><span class="fr">Bande interdite optique indirecte, mesurée par réflectance diffuse</span><span class="en">Indirect optical band gap, from diffuse reflectance</span></p></div>
+        <div class="stat lift"><p class="stat-num"><span class="fr">99,3</span><span class="en">99.3</span><small>%</small></p><p><span class="fr">de cristal violet éliminé en moins de 4&nbsp;h sous UV (365&nbsp;nm)</span><span class="en">of crystal violet removed in under 4&nbsp;h under UV (365&nbsp;nm)</span></p></div>
+        <div class="stat lift"><p class="stat-num"><span class="fr">97,8</span><span class="en">97.8</span><small>%</small></p><p><span class="fr">éliminé en 5,5&nbsp;h sous lumière visible (450&nbsp;nm)</span><span class="en">removed in 5.5&nbsp;h under visible light (450&nbsp;nm)</span></p></div>
+        <div class="stat lift"><p class="stat-num">152–178<small>mV</small></p><p><span class="fr">Surtension OER à 10&nbsp;mA&nbsp;cm⁻², électrodes sur mousse de nickel, KOH 1&nbsp;M</span><span class="en">OER overpotential at 10&nbsp;mA&nbsp;cm⁻², electrodes on nickel foam, 1&nbsp;M KOH</span></p></div>
+      </div>
+      <p class="source"><span class="fr">Valeurs du poster présenté à Cambridge en octobre 2026.</span><span class="en">Values from the poster presented in Cambridge, October 2026.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- MICROSCOPY -->
+<section class="band night" id="caracterisation">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Caractérisation</span><span class="en">Characterization</span></p>
+      <h2 class="h2"><span class="fr">Vu de près.</span><span class="en">Up close.</span></h2>
+    </div>
+    <div class="micro-grid">
+      <figure class="card c-sem lift">
+        <img src="sem.jpg" width="488" height="286" loading="lazy" data-alt-fr="Image MEB d’agrégats de nanocristaux de l’oxyde, barre d’échelle 2 µm" data-alt-en="SEM image of agglomerated oxide nanocrystals, 2 µm scale bar" alt="">
+        <figcaption class="cap"><span class="mono"><span class="fr">MEB · ×15&#8239;200 · barre 2&nbsp;µm</span><span class="en">SEM · ×15,200 · 2&nbsp;µm bar</span></span><p><span class="fr">Agrégats de nanocristaux. L’analyse EDX de la zone encadrée retrouve les cinq cations et 57,3&nbsp;% d’oxygène, en atomes.</span><span class="en">Agglomerated nanocrystals. EDX on the framed area finds all five cations and 57.3 at.% oxygen.</span></p></figcaption>
+      </figure>
+      <figure class="card c-xrd lift">
+        <div class="xrd-box">
+          <svg id="xrd" viewBox="0 0 640 280" role="img" data-aria-fr="Diffractogramme X du spinelle, 2θ de 10 à 70 degrés, pic principal (311) vers 35,7 degrés" data-aria-en="X-ray diffraction pattern of the spinel, 2θ from 10 to 70 degrees, main (311) peak near 35.7 degrees">
+            <defs><linearGradient id="xrdGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--co);stop-opacity:.55"/><stop offset="1" style="stop-color:var(--co);stop-opacity:0"/></linearGradient></defs>
+            <g id="xrd-axes"></g>
+            <path id="xrd-area" d=""/>
+            <path id="xrd-line" d=""/>
+            <g id="xrd-cur"><line x1="0" x2="0" y1="26" y2="212"/><text x="0" y="18"></text></g>
+          </svg>
+        </div>
+        <figcaption class="cap"><span class="mono"><span class="fr">DRX · Cu Kα · 2θ de 10 à 70°</span><span class="en">XRD · Cu Kα · 2θ from 10 to 70°</span></span><p><span class="fr">Spinelle cubique monophasé (Fd-3m). L’affinement de Rietveld donne a = 8,328&nbsp;Å et Rwp = 3,25&nbsp;%.</span><span class="en">Single-phase cubic spinel (Fd-3m). Rietveld refinement gives a = 8.328&nbsp;Å and Rwp = 3.25%.</span></p><span class="fine"><span class="fr">Profil recalculé à partir des positions de Bragg (traits jaunes). Survolez pour lire les plans (hkl).</span><span class="en">Profile recomputed from the Bragg positions (yellow ticks). Hover to read the (hkl) planes.</span></span></figcaption>
+      </figure>
+      <figure class="card c-tem lift">
+        <div class="ph"><img src="tem.jpg" width="398" height="583" loading="lazy" data-alt-fr="Image MET de cristaux facettés de l’oxyde, barre d’échelle 100 nm" data-alt-en="TEM image of faceted oxide crystals, 100 nm scale bar" alt=""></div>
+        <figcaption class="cap"><span class="mono"><span class="fr">MET · barre 100&nbsp;nm</span><span class="en">TEM · 100&nbsp;nm bar</span></span><p><span class="fr">Cristaux facettés de 100 à 150&nbsp;nm.</span><span class="en">Faceted crystals, 100 to 150&nbsp;nm across.</span></p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOCATALYSIS -->
+<section class="band mist" id="photocatalyse">
+  <div class="wrap pc-grid">
+    <div class="pc-copy">
+      <p class="eyebrow"><span class="fr">Photocatalyse</span><span class="en">Photocatalysis</span></p>
+      <h2 class="h2"><span class="fr">Le violet s’efface.</span><span class="en">The violet fades.</span></h2>
+      <div>
+        <p class="body"><span class="fr">Le cristal violet est un colorant textile toxique pour les milieux aquatiques. Dans une solution à 50&nbsp;mg/L, 40&nbsp;mg/L de mon oxyde en éliminent 99,3&nbsp;% en moins de 4&nbsp;heures sous UV, et 97,8&nbsp;% en 5,5&nbsp;heures sous lumière visible.</span><span class="en">Crystal violet is a textile dye that is toxic to aquatic life. In a 50&nbsp;mg/L solution, 40&nbsp;mg/L of my oxide removes 99.3% of it in under 4&nbsp;hours under UV, and 97.8% in 5.5&nbsp;hours under visible light.</span></p>
+        <p class="body"><span class="fr">Le TiO₂ de référence reste plus rapide sous UV (k<sub>app</sub> ≈ 0,096&nbsp;min⁻¹ contre 0,0114). Sous lumière visible, il ne convertit rien en 70&nbsp;minutes.</span><span class="en">The TiO₂ benchmark is still faster under UV (k<sub>app</sub> ≈ 0.096&nbsp;min⁻¹ versus 0.0114). Under visible light, it converts nothing in 70&nbsp;minutes.</span></p>
+      </div>
+    </div>
+    <div class="pc-lab lift" id="pc">
+      <div class="seg" id="pc-modes" role="group" data-aria-fr="Conditions d’essai" data-aria-en="Test conditions">
+        <button type="button" data-m="uv" aria-pressed="true" style="--d:var(--uv)"><i></i><span class="fr">Oxyde · UV 365&nbsp;nm</span><span class="en">Oxide · UV 365&nbsp;nm</span></button>
+        <button type="button" data-m="vis" aria-pressed="false" style="--d:var(--blue450)"><i></i><span class="fr">Oxyde · visible 450&nbsp;nm</span><span class="en">Oxide · visible 450&nbsp;nm</span></button>
+        <button type="button" data-m="tio2" aria-pressed="false" style="--d:var(--ink-3)"><i></i><span class="fr">TiO₂ · visible 450&nbsp;nm</span><span class="en">TiO₂ · visible 450&nbsp;nm</span></button>
+      </div>
+      <div class="pc-stage">
+        <div class="cuvette-wrap" id="pc-glow" style="--glow:var(--uv)"><span class="halo"></span><span class="led"></span><div class="cuvette"><div id="pc-liquid"></div></div></div>
+        <svg id="pc-chart" viewBox="0 0 420 240" role="img" data-aria-fr="Concentration relative du cristal violet en fonction du temps d’irradiation" data-aria-en="Relative crystal violet concentration versus irradiation time">
+          <g id="pc-grid"></g>
+          <g id="pc-curves"></g>
+          <line id="pc-guide" x1="0" x2="0" y1="18" y2="196"/>
+          <circle id="pc-dot" r="6" cx="0" cy="0"/>
+        </svg>
+      </div>
+      <p id="pc-out" aria-live="polite"></p>
+      <div class="range">
+        <label for="pc-t"><span><span class="fr">Temps d’irradiation</span><span class="en">Irradiation time</span></span><span><span class="fr">Faites défiler ou glissez</span><span class="en">Scroll or drag</span></span></label>
+        <input type="range" id="pc-t" min="0" max="330" step="1" value="0">
+      </div>
+      <p class="fine"><span class="fr">Courbes tracées entre les valeurs publiées : départ, demi-vie (ln 2 / k<sub>app</sub>) et fin de mesure. Pas de mesure TiO₂ au-delà de 70&nbsp;min.</span><span class="en">Curves drawn between published values: start, half-life (ln 2 / k<sub>app</sub>) and end of measurement. No TiO₂ data beyond 70&nbsp;min.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- CAMBRIDGE -->
+<section class="band paper" id="cambridge">
+  <div class="wrap cam">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Communication · octobre 2026</span><span class="en">Conference · October 2026</span></p>
+      <h2 class="h2"><span class="fr">Présenté à Cambridge.</span><span class="en">Presented in Cambridge.</span></h2>
+      <p class="body"><span class="fr">Poster à la 2nd International Conference on Green Materials and Manufacturing Technology (GMMT 2026), du 9 au 11 octobre au Gonville &amp; Caius College de l’Université de Cambridge. L’article de conférence est soumis aux Springer Proceedings in Materials.</span><span class="en">Poster at the 2nd International Conference on Green Materials and Manufacturing Technology (GMMT 2026), 9 to 11 October, Gonville &amp; Caius College, University of Cambridge. The conference paper is submitted to Springer Proceedings in Materials.</span></p>
+    </div>
+    <div class="stack" style="gap:16px">
+      <article class="cite lift">
+        <p class="tag">Poster · GMMT 2026 · Cambridge</p>
+        <h3>Spinel-type High-Entropy Oxide (FeCoNiCrMn)₃O₄: Electrocatalytic and Photocatalytic Properties</h3>
+        <p class="authors"><b>B. Megueni-Tani</b>, S. Zhao, C. Tenailleau, A. R. Kamali</p>
+        <p class="aff">E²MC, School of Metallurgy, Northeastern University, Shenyang · CIRIMAT, Université de Toulouse</p>
+        <p class="aff"><span class="fr">Stage soutenu par la Région Occitanie, l’AMI de l’Université de Toulouse et NanoX.</span><span class="en">Internship supported by Région Occitanie, Université de Toulouse (AMI) and NanoX.</span></p>
+      </article>
+      <article class="cite lift">
+        <p class="tag"><span class="fr">Article de conférence · soumis</span><span class="en">Conference paper · submitted</span></p>
+        <h3>High-Entropy Oxides of spinel type (FeCoNiCrMn)₃O₄: electrocatalytic and photocatalytic properties</h3>
+        <p class="authors"><b>B. Megueni-Tani</b> et al.</p>
+        <p class="aff">Springer Proceedings in Materials (GMMT 2026)</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HEO PLATFORM -->
+<section class="band mist" id="heo-platform">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Données · heo-platform v1.1</span><span class="en">Data · heo-platform v1.1</span></p>
+      <h2 class="h2"><span class="fr">869 articles. <span class="dim">Une seule carte.</span></span><span class="en">869 papers. <span class="dim">One map.</span></span></h2>
+      <p class="body"><span class="fr">J’ai écrit une chaîne qui récolte la littérature sur les oxydes à haute entropie, en extrait 1&#8239;074 échantillons en relisant la stœchiométrie dans chaque formule, puis prédit la famille cristalline de compositions que personne n’a encore synthétisées.</span><span class="en">I wrote a pipeline that harvests the literature on high-entropy oxides, extracts 1,074 samples by reading the stoichiometry from each written formula, then predicts the crystal family of compositions nobody has made yet.</span></p>
+    </div>
+
+    <div class="map-grid">
+      <figure class="map-card lift">
+        <div class="map-canvas">
+          <canvas id="map" role="img" data-aria-fr="Carte des 559 systèmes de cations de la base, colorés par famille cristalline" data-aria-en="Map of the 559 cation systems in the database, coloured by crystal family"></canvas>
+          <div id="map-tip" hidden></div>
+        </div>
+        <div class="chips" id="map-chips">
+          <button type="button" class="chip" data-f="0" aria-pressed="true" style="--d:var(--co)"><i></i><span class="fr">spinelle</span><span class="en">spinel</span><span class="k">124</span></button>
+          <button type="button" class="chip" data-f="1" aria-pressed="true" style="--d:var(--fe)"><i></i><span class="fr">pérovskite</span><span class="en">perovskite</span><span class="k">155</span></button>
+          <button type="button" class="chip" data-f="2" aria-pressed="true" style="--d:var(--ni)"><i></i><span class="fr">sel gemme</span><span class="en">rock salt</span><span class="k">18</span></button>
+          <button type="button" class="chip" data-f="3" aria-pressed="true" style="--d:var(--cr)"><i></i><span class="fr">fluorine</span><span class="en">fluorite</span><span class="k">57</span></button>
+          <button type="button" class="chip" data-f="4" aria-pressed="true" style="--d:var(--mn)"><i></i>pyrochlore<span class="k">34</span></button>
+          <button type="button" class="chip" data-f="5" aria-pressed="true" style="--d:var(--teal)"><i></i><span class="fr">lamellaire</span><span class="en">layered</span><span class="k">20</span></button>
+          <button type="button" class="chip" data-f="-1" aria-pressed="true" style="--d:var(--ink-3)"><i></i><span class="fr">non précisée</span><span class="en">unspecified</span><span class="k">131</span></button>
+        </div>
+        <figcaption class="fine"><span class="fr">Chaque point est l’un des 539 systèmes de cations, placé par analyse en composantes principales de ses 134 descripteurs (moyenne de ses échantillons). Sa surface suit le nombre d’échantillons publiés. Touchez une famille pour la masquer.</span><span class="en">Each dot is one of the 539 cation systems, placed by principal component analysis of its 134 descriptors (averaged over its samples). Its area follows the number of published samples. Tap a family to hide it.</span></figcaption>
+      </figure>
+      <aside class="map-side">
+        <p class="big">113</p>
+        <p class="lead"><span class="fr">échantillons pour (FeCoNiCrMn)₃O₄, l’oxyde de mon stage. C’est le système le plus publié de la base.</span><span class="en">samples for (FeCoNiCrMn)₃O₄, the oxide from my internship. It is the most published system in the database.</span></p>
+        <p class="body"><span class="fr">Juste derrière, avec 96 échantillons : (MgCoNiCuZn)O, l’oxyde sel gemme de Rost et al. (2015) qui a lancé le domaine.</span><span class="en">Right behind, with 96 samples: (MgCoNiCuZn)O, the rock-salt oxide from Rost et al. (2015) that started the field.</span></p>
+      </aside>
+    </div>
+
+    <ol class="pipeline">
+      <li class="lift"><span class="n">1</span><span class="v"><span class="fr">2&#8239;189</span><span class="en">2,189</span></span><p><span class="fr">notices récoltées sur EuropePMC, Crossref et arXiv</span><span class="en">records harvested from EuropePMC, Crossref and arXiv</span></p></li>
+      <li class="lift"><span class="n">2</span><span class="v"><span class="fr">1&#8239;074</span><span class="en">1,074</span></span><p><span class="fr">échantillons extraits par un modèle de langue, puis relus dans la formule écrite : 142 ensembles de cations corrigés</span><span class="en">samples extracted by a language model, then re-read from the written formula: 142 cation sets corrected</span></p></li>
+      <li class="lift"><span class="n">3</span><span class="v">134</span><p><span class="fr">descripteurs par composition : rayons de Shannon, électronégativité et autres propriétés des cations</span><span class="en">descriptors per composition: Shannon radii, electronegativity and other cation properties</span></p></li>
+      <li class="lift"><span class="n">4</span><span class="v"><span class="fr">91,6&nbsp;%</span><span class="en">91.6%</span></span><p><span class="fr">d’exactitude sur six familles cristallines, et 85,9&nbsp;% sur 192 systèmes publiés après l’entraînement</span><span class="en">accuracy over six crystal families, and 85.9% on 192 systems published after training</span></p></li>
+      <li class="lift"><span class="n">5</span><span class="v"><span class="fr">739&#8239;222</span><span class="en">739,222</span></span><p><span class="fr">compositions criblées, dont 274&#8239;712 dans le domaine d’applicabilité du modèle</span><span class="en">compositions screened, 274,712 of them inside the model’s applicability domain</span></p></li>
+      <li class="lift"><span class="n">6</span><span class="v"><span class="fr">111 tests</span><span class="en">111 tests</span></span><p><span class="fr">en intégration continue. L’application tient en un fichier HTML hors ligne, vérifié contre Python à 10⁻¹⁶ près.</span><span class="en">in continuous integration. The app fits in one offline HTML file, checked against Python to within 10⁻¹⁶.</span></p></li>
+    </ol>
+    <div class="linkrow">
+      <a class="chev" href="https://github.com/badi-project/heo-platform" target="_blank" rel="noopener"><span class="fr">Voir le dépôt sur GitHub</span><span class="en">View the repository on GitHub</span></a>
+      <span class="fine" style="align-self:center"><span class="fr">La probabilité affichée porte sur la famille cristalline, jamais sur une performance catalytique.</span><span class="en">The probability shown is for the crystal family, never for catalytic performance.</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- HEO-PLATFORM v1.1 : CALCUL -->
+<section class="band night" id="calcul">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">heo-platform v1.1 · calcul et apprentissage actif</span><span class="en">heo-platform v1.1 · computation and active learning</span></p>
+      <h2 class="h2"><span class="fr">Mon oxyde, <span class="dim">recalculé.</span></span><span class="en">My oxide, <span class="dim">recomputed.</span></span></h2>
+      <p class="lead" style="max-width:40ch"><span class="fr">Le classifieur apprend ce que la littérature rapporte. La v1.1 ajoute des grandeurs calculées avec CHGNet, un potentiel interatomique appris. <span class="dim">Chaque critère est écrit avant le calcul.</span></span><span class="en">The classifier learns what the literature reports. Version 1.1 adds quantities computed with CHGNet, a machine-learned interatomic potential. <span class="dim">Every criterion is written down before the calculation.</span></span></p>
+    </div>
+
+    <div class="phys-grid">
+      <div class="panel lift">
+        <p class="eyebrow"><span class="fr">Paramètre de maille</span><span class="en">Lattice parameter</span></p>
+        <p class="kpi cr"><span class="fr">+0,24&nbsp;%</span><span class="en">+0.24%</span></p>
+        <p class="txt"><span class="fr">d’écart entre la maille calculée (8,348&nbsp;Å) et celle que j’ai mesurée sur mon échantillon (8,328&nbsp;Å). Sur quatre spinelles HEO mesurés, l’écart moyen est de 0,53&nbsp;%.</span><span class="en">between the computed lattice (8.348&nbsp;Å) and the one I measured on my sample (8.328&nbsp;Å). Across four measured HEO spinels, the mean error is 0.53%.</span></p>
+        <div class="cmp" role="img" data-aria-fr="Écart à la mesure : 5,2 % pour le modèle géométrique de la v1.0, 0,24 % pour CHGNet en v1.1" data-aria-en="Error versus measurement: 5.2% for the v1.0 geometric model, 0.24% for CHGNet in v1.1">
+          <div><span><span class="fr">v1.0 · géométrique</span><span class="en">v1.0 · geometric</span></span><span class="bar"><i style="--w:94.5%;--c:var(--ink-3)"></i></span><b><span class="fr">+5,2&nbsp;%</span><span class="en">+5.2%</span></b></div>
+          <div><span>v1.1 · CHGNet</span><span class="bar"><i style="--w:4.4%;--c:var(--cr)"></i></span><b><span class="fr">+0,24&nbsp;%</span><span class="en">+0.24%</span></b></div>
+        </div>
+      </div>
+
+      <div class="panel lift">
+        <p class="eyebrow"><span class="fr">Énergie de lacune d’oxygène</span><span class="en">Oxygen vacancy energy</span></p>
+        <h3><span class="fr">Changer un cation de mon oxyde.</span><span class="en">Swap one cation in my oxide.</span></h3>
+        <p class="txt"><span class="fr">Prédiction écrite avant le calcul : un cation divalent (Mg, Cu, Zn) oblige le manganèse à passer en Mn³⁺ et facilite la lacune ; un cation trivalent non réductible (Al, Ga) ne change rien. Vérifié.</span><span class="en">Prediction written before the calculation: a divalent cation (Mg, Cu, Zn) pushes manganese to Mn³⁺ and makes the vacancy easier; a non-reducible trivalent cation (Al, Ga) changes nothing. Confirmed.</span></p>
+        <div class="subs" id="subs" role="group" data-aria-fr="Substitutions du chrome" data-aria-en="Chromium substitutions"></div>
+        <div class="saxis" aria-hidden="true"><span></span><div class="ticks" id="sub-ticks"></div><span></span></div>
+        <div class="legend"><span class="ref"><i></i><span class="fr">référence</span><span class="en">reference</span></span><span class="tri"><i></i><span class="fr">trivalent</span><span class="en">trivalent</span></span><span class="di"><i></i><span class="fr">divalent</span><span class="en">divalent</span></span></div>
+        <p id="sub-out" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="panel lift">
+      <div class="oer-wrap">
+        <div class="stack" style="gap:14px">
+          <p class="eyebrow"><span class="fr">Ce que la plateforme refuse de prédire</span><span class="en">What the platform refuses to predict</span></p>
+          <h3><span class="fr">Le même oxyde, publié dix fois.</span><span class="en">The same oxide, published ten times.</span></h3>
+          <p class="txt"><span class="fr">Pour (FeCoNiCrMn)₃O₄, la surtension OER publiée va de 204 à 366&nbsp;mV selon l’électrode et le protocole. À composition égale, les valeurs varient autant qu’entre compositions différentes : corrélation intraclasse 0,00. La plateforme ne prédit donc pas l’activité. Elle calcule l’énergie de lacune, qui suit la réductibilité mesurée de 9 oxydes binaires (corrélation de rang 0,93).</span><span class="en">For (FeCoNiCrMn)₃O₄, the published OER overpotential ranges from 204 to 366&nbsp;mV depending on the electrode and protocol. At equal composition, values vary as much as between different compositions: intraclass correlation 0.00. So the platform does not predict activity. It computes the vacancy energy, which tracks the measured reducibility of 9 binary oxides (rank correlation 0.93).</span></p>
+        </div>
+        <div class="stack" style="gap:10px">
+          <svg id="oer" viewBox="0 0 420 150" role="img" data-aria-fr="Dix surtensions OER publiées pour (FeCoNiCrMn)3O4, de 204 à 366 mV" data-aria-en="Ten published OER overpotentials for (FeCoNiCrMn)3O4, from 204 to 366 mV"></svg>
+          <p id="oer-out" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel lift">
+      <div class="al-grid">
+        <div class="stack" style="gap:14px">
+          <p class="eyebrow"><span class="fr">Apprentissage actif</span><span class="en">Active learning</span></p>
+          <p class="kpi">27&nbsp;%</p>
+          <p class="txt"><span class="fr">de synthèses en moins que le hasard pour la même exactitude, sur un banc rétrospectif de 10 découpages. Le critère était 25&nbsp;% : atteint de justesse.</span><span class="en">fewer syntheses than random picking for the same accuracy, on a retrospective benchmark of 10 splits. The criterion was 25%: met, narrowly.</span></p>
+          <p class="txt"><span class="fr">La boucle propose quatre compositions inédites, à la frontière entre sel gemme et spinelle. Ce sont des prédictions enregistrées avant l’expérience.</span><span class="en">The loop proposes four new compositions on the border between rock salt and spinel. These predictions are recorded before the experiment.</span></p>
+        </div>
+        <div class="stack" style="gap:14px">
+          <div class="dumb" id="dumb"></div>
+          <div class="daxis" aria-hidden="true"><span></span><div><span><span class="fr">spinelle</span><span class="en">spinel</span></span><span><span class="fr">P = 0,5</span><span class="en">P = 0.5</span></span><span><span class="fr">sel gemme</span><span class="en">rock salt</span></span></div></div>
+          <div class="legend"><span class="clfk"><i></i><span class="fr">classifieur</span><span class="en">classifier</span></span><span class="chgk"><i class="dia"></i><span class="fr">calcul CHGNet</span><span class="en">CHGNet calculation</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="linkrow">
+      <a class="chev" href="https://github.com/badi-project/heo-platform/blob/main/docs/RAPPORT_plateforme_HEO.md" target="_blank" rel="noopener"><span class="fr">Lire le rapport méthodologique</span><span class="en">Read the methods report (French)</span></a>
+      <span class="tech" style="align-self:center">Python · scikit-learn · CHGNet · pymatgen · pytest · MIT</span>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO VIDEO -->
+<section class="band paper" id="projets">
+  <div class="wrap stack">
+    <div class="studio-grid">
+      <figure class="phone lift">
+        <div class="phone-frame"><picture><source srcset="studio-still.jpg" media="(prefers-reduced-motion: reduce)"><img src="studio-demo.gif" width="300" height="533" loading="lazy" data-alt-fr="Extrait animé de la vidéo de démonstration : le robot Proto explique pourquoi le ciel est bleu" data-alt-en="Animated excerpt of the demo video: the robot Proto explains why the sky is blue" alt=""></picture></div>
+        <figcaption class="fine"><span class="fr">Extrait de la vidéo de démonstration du dépôt, entièrement rendue par le code.</span><span class="en">Excerpt of the repository’s demo video, rendered entirely by the code.</span></figcaption>
+      </figure>
+      <div class="stack" style="gap:28px">
+        <div class="head">
+          <p class="eyebrow"><span class="fr">Projets · vidéo</span><span class="en">Projects · video</span></p>
+          <h2 class="h2"><span class="fr">Studio vidéo <span class="dim">en code.</span></span><span class="en">A video studio, <span class="dim">in code.</span></span></h2>
+          <p class="body"><span class="fr">Des vidéos verticales pour Reels, TikTok ou Shorts, avec un personnage mascotte. La voix, l’animation, les sous-titres, la synchro labiale et le montage sont générés par le code à partir de deux fichiers texte. Aucun logiciel de montage, aucun service payant.</span><span class="en">Vertical videos for Reels, TikTok or Shorts, with a mascot character. Voice, animation, captions, lip sync and editing are all generated by code from two text files. No editing software, no paid service.</span></p>
+        </div>
+        <div class="codes">
+          <figure class="code"><figcaption>story.json · <span class="fr">ce que dit le personnage</span><span class="en">what the character says</span></figcaption><pre><span class="q">"phrases": [</span>
+  ["Pourquoi le ciel", "est <span class="hl">*bleu*</span> ?"],
+  ["La lumière du Soleil", "contient <span class="hl">*toutes les couleurs*</span>."],
+  ["En traversant l'air,", "elle rencontre des <span class="hl">*molécules*</span>", "minuscules."]
+<span class="q">]</span></pre></figure>
+          <figure class="code"><figcaption>scenes.json · <span class="fr">ce qu’on voit, calé sur les phrases (extrait simplifié)</span><span class="en">what you see, timed to the sentences (simplified excerpt)</span></figcaption><pre><span class="q">{"from": 0, "to": 0, "els": [</span>
+  {"type": "big", "text": "BLEU ?", "at": "0.1"},
+  {"type": "char", "mode": "head", "expr": "wow"}
+<span class="q">]}</span></pre></figure>
+        </div>
+        <dl class="facts">
+          <div><dt><span class="fr">0 clé</span><span class="en">0 keys</span></dt><dd><span class="fr">d’API : synthèse et reconnaissance vocales tournent hors ligne, sur la machine</span><span class="en">of API: speech synthesis and recognition run offline, on the machine</span></dd></div>
+          <div><dt>1080×1920</dt><dd><span class="fr">rendu image par image, à 30 images par seconde</span><span class="en">rendered frame by frame, at 30 frames per second</span></dd></div>
+          <div><dt>6 guides</dt><dd><span class="fr">de documentation, du dessin du personnage à l’audit de confidentialité avant publication</span><span class="en">of documentation, from drawing the character to a privacy audit before publishing</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <ol class="steps six" aria-label="Pipeline">
+      <li class="lift"><span class="n">1 · voice</span><h3><span class="fr">Voix</span><span class="en">Voice</span></h3><p><span class="fr">Piper lit le texte hors ligne. La timeline note le début de chaque phrase et le volume, image par image.</span><span class="en">Piper reads the text offline. The timeline records when each sentence starts and the loudness, frame by frame.</span></p></li>
+      <li class="lift"><span class="n">2 · qa</span><h3><span class="fr">Contrôle</span><span class="en">Check</span></h3><p><span class="fr">Whisper réécoute chaque phrase et signale celles qui s’éloignent du texte, sous 0,85 de similarité.</span><span class="en">Whisper listens to each sentence again and flags those that drift from the text, below 0.85 similarity.</span></p></li>
+      <li class="lift"><span class="n">3 · page</span><h3>Page</h3><p><span class="fr">Une page web dessine la vidéo à n’importe quel instant t avec renderAt(t). Aucune animation ne tourne toute seule.</span><span class="en">A web page draws the video at any instant t with renderAt(t). No animation runs on its own.</span></p></li>
+      <li class="lift"><span class="n">4 · assets</span><h3><span class="fr">Personnage</span><span class="en">Character</span></h3><p><span class="fr">Proto, un robot en SVG paramétrique (12 poses, 15 expressions), pré-rendu en PNG. Sa bouche suit la voix.</span><span class="en">Proto, a parametric SVG robot (12 poses, 15 expressions), pre-rendered to PNG. Its mouth follows the voice.</span></p></li>
+      <li class="lift"><span class="n">5 · preview</span><h3><span class="fr">Planche</span><span class="en">Contact sheet</span></h3><p><span class="fr">Une planche de contrôle montre chaque scène avant le rendu, pour corriger sans tout relancer.</span><span class="en">A contact sheet shows every scene before rendering, so fixes don’t mean starting over.</span></p></li>
+      <li class="lift"><span class="n">6 · render</span><h3><span class="fr">Rendu</span><span class="en">Render</span></h3><p><span class="fr">Chromium capture chaque image, FFmpeg les assemble avec la voix normalisée en un fichier .mp4.</span><span class="en">Chromium captures every frame, FFmpeg assembles them with the normalised voice into an .mp4.</span></p></li>
+    </ol>
+    <div class="linkrow">
+      <a class="chev" href="https://github.com/badi-project/studio-video-code" target="_blank" rel="noopener"><span class="fr">Voir le code sur GitHub</span><span class="en">View the code on GitHub</span></a>
+      <span class="tech" style="align-self:center">Python · Piper · sherpa-onnx · Whisper · Playwright · FFmpeg · MIT</span>
+    </div>
+  </div>
+</section>
+
+<!-- SHOW LUMIERE -->
+<section class="band night" id="show-lumiere">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Projets · app Mac</span><span class="en">Projects · Mac app</span></p>
+      <h2 class="h2">Show lumière.</h2>
+      <p class="lead"><span class="fr">Mon Mac pilote les ampoules de l’appartement en local, par le protocole Matter, et les fait danser sur la musique. <span class="dim">Sans cloud, sans compte.</span></span><span class="en">My Mac drives the flat’s smart bulbs locally over Matter and makes them dance to the music. <span class="dim">No cloud, no account.</span></span></p>
+    </div>
+    <div class="stage lift">
+      <div class="lamps" id="lamps" aria-hidden="true"><span class="lamp"></span><span class="lamp"></span><span class="lamp"></span><span class="lamp"></span><span class="lamp"></span><span class="lamp"></span></div>
+      <div class="picker" id="show-pick" role="group" data-aria-fr="Choisir un show" data-aria-en="Choose a show">
+        <button type="button" data-s="soiree-ambiance" aria-pressed="true"><span class="fr">Soirée ambiance</span><span class="en">Party mood</span></button>
+        <button type="button" data-s="chenillard-rouge" aria-pressed="false"><span class="fr">Chenillard rouge &amp; bleu</span><span class="en">Red &amp; blue chaser</span></button>
+        <button type="button" data-s="halloween" aria-pressed="false">Halloween</button>
+        <button type="button" data-s="noel" aria-pressed="false"><span class="fr">Noël enchanté</span><span class="en">Enchanted Christmas</span></button>
+      </div>
+      <p class="fine"><span class="fr">Les quatre shows livrés avec l’app, rejoués ici avec leurs couleurs, leurs fondus et leur tempo.</span><span class="en">The four shows bundled with the app, replayed here with their colours, fades and tempo.</span></p>
+    </div>
+    <ul class="feats">
+      <li><h3><span class="fr">Matter en local</span><span class="en">Local Matter</span></h3><p><span class="fr">Appairage avec un code à 11 chiffres. Les ampoules restent dans Maison, Google Home et Alexa.</span><span class="en">Pairs with an 11-digit code. The bulbs stay in Apple Home, Google Home and Alexa.</span></p></li>
+      <li><h3><span class="fr">Synchro musicale</span><span class="en">Music sync</span></h3><p><span class="fr">Couleurs tirées de la pochette, accents selon le genre, tempo détecté dans le navigateur.</span><span class="en">Colours taken from the album art, accents by genre, tempo detected in the browser.</span></p></li>
+      <li><h3><span class="fr">App native</span><span class="en">Native app</span></h3><p><span class="fr">Une ampoule dans la barre des menus, Node.js embarqué, pilotage depuis l’iPhone par QR code.</span><span class="en">A bulb in the menu bar, bundled Node.js, control from the iPhone through a QR code.</span></p></li>
+    </ul>
+    <div class="linkrow">
+      <a class="chev" href="https://github.com/badi-project/matter-light-show" target="_blank" rel="noopener"><span class="fr">Voir le code sur GitHub</span><span class="en">View the code on GitHub</span></a>
+      <span class="tech" style="align-self:center">Swift · Node.js · matter.js · OKLab · MIT</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACCUEIL TV -->
+<section class="band paper" id="accueil">
+  <div class="wrap tv-grid">
+    <div class="stack" style="gap:28px">
+      <div class="head">
+        <p class="eyebrow"><span class="fr">Projets · Android TV</span><span class="en">Projects · Android TV</span></p>
+        <h2 class="h2">Accueil.</h2>
+        <p class="body"><span class="fr">Un écran d’accueil pour téléviseur Android, inspiré de l’Apple TV. Pas de publicité, pas de recommandations, aucun suivi.</span><span class="en">A home screen for Android TV, inspired by Apple TV. No ads, no recommendations, no tracking.</span></p>
+      </div>
+      <dl class="facts">
+        <div><dt><span class="fr">≈ 40&nbsp;Ko</span><span class="en">≈ 40&nbsp;KB</span></dt><dd><span class="fr">Java pur, sans aucune bibliothèque, compilé sans Android Studio</span><span class="en">Plain Java, no libraries, built without Android Studio</span></dd></div>
+        <div><dt><span class="fr">1,3&nbsp;Go</span><span class="en">1.3&nbsp;GB</span></dt><dd><span class="fr">de RAM sur la TV de test : Android TV 11, puce MediaTek 32 bits</span><span class="en">of RAM on the test TV: Android TV 11, 32-bit MediaTek chip</span></dd></div>
+        <div><dt><span class="fr">1 commande</span><span class="en">1 command</span></dt><dd><span class="fr">pour l’installer depuis l’ordinateur, via adb. Un second script, réversible, coupe la publicité et la télémétrie des TV Vestel.</span><span class="en">to install it from a computer over adb. A second, reversible script turns off ads and telemetry on Vestel TVs.</span></dd></div>
+      </dl>
+      <div class="linkrow"><a class="chev" href="https://github.com/badi-project/accueil-android-tv" target="_blank" rel="noopener"><span class="fr">Voir le code sur GitHub</span><span class="en">View the code on GitHub</span></a></div>
+    </div>
+    <figure class="tv lift">
+      <div class="tv-frame">
+        <div class="screen" id="tv">
+          <div class="amb" id="tv-amb"></div>
+          <div class="tv-top">
+            <div><div class="clock">18:12</div><div class="date"><span class="fr">jeudi 22 octobre</span><span class="en">Thursday 22 October</span></div></div>
+            <div class="brandtv">ACCUEIL</div>
+          </div>
+          <div class="tiles">
+            <button type="button" class="tile" style="--a:#ff6a6a;--b:#a3123a" data-amb="#4a1020"><span class="ic"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="#fff" stroke="none"/></svg></span><span class="tl"><span class="fr">Films</span><span class="en">Movies</span></span></button>
+            <button type="button" class="tile" style="--a:#ffae5c;--b:#d0461c" data-amb="#4d2410"><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></span><span class="tl"><span class="fr">Musique</span><span class="en">Music</span></span></button>
+            <button type="button" class="tile" style="--a:#5cc8ff;--b:#1d4fbf" data-amb="#0f2a52"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.7"/><path d="M4 17.5l5-5 4 4 3-3 4 4"/></svg></span><span class="tl">Photos</span></button>
+            <button type="button" class="tile" style="--a:#4fe0a0;--b:#0b6b4c" data-amb="#0c3a2b"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="12" rx="2.5"/><path d="M8.5 3l3.5 3.5L15.5 3"/></svg></span><span class="tl"><span class="fr">Direct</span><span class="en">Live TV</span></span></button>
+            <button type="button" class="tile" style="--a:#b59bff;--b:#4b26b8" data-amb="#26164f"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.4 3 14.6 0 18M12 3c-3 3.4-3 14.6 0 18"/></svg></span><span class="tl"><span class="fr">Navigateur</span><span class="en">Browser</span></span></button>
+            <button type="button" class="tile" style="--a:#b9bec8;--b:#4a4f5a" data-amb="#24272e"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2" fill="#4a4f5a"/><circle cx="15" cy="12" r="2" fill="#4a4f5a"/><circle cx="7.5" cy="17" r="2" fill="#4a4f5a"/></svg></span><span class="tl"><span class="fr">Réglages</span><span class="en">Settings</span></span></button>
+          </div>
+        </div>
+      </div>
+      <figcaption class="fine"><span class="fr">Interface reconstituée pour cette page. Survolez les vignettes ou utilisez les flèches.</span><span class="en">Interface recreated for this page. Hover the tiles or use the arrow keys.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- OTHER PROJECTS -->
+<section class="band mist" id="autres">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Projets</span><span class="en">Projects</span></p>
+      <h2 class="h2"><span class="fr">Et aussi.</span><span class="en">Also.</span></h2>
+    </div>
+    <div class="proj">
+      <article class="pcard lift">
+        <p class="eyebrow">Next.js · TypeScript · PostgreSQL</p>
+        <h3><span class="fr">Prix des carburants</span><span class="en">Fuel prices, France</span></h3>
+        <p><span class="fr">Les prix de près de 10&#8239;000 stations françaises sur une carte, avec un historique quotidien et la détection des vagues de hausse par enseigne et par département.</span><span class="en">Prices for about 10,000 French stations on a map, with daily history and detection of price-rise waves by brand and by département.</span></p>
+        <p class="detail"><span class="fr">Les données ouvertes ne donnent pas l’enseigne. Je la retrouve dans OpenStreetMap, dans un rayon de 50&nbsp;m autour de chaque station.</span><span class="en">The open data has no brand names. I recover them from OpenStreetMap, within 50&nbsp;m of each station.</span></p>
+        <div class="linkrow"><a class="chev" href="https://github.com/badi-project/fuel-prices-fr" target="_blank" rel="noopener"><span class="fr">Voir le code</span><span class="en">View the code</span></a></div>
+      </article>
+      <article class="pcard lift">
+        <p class="eyebrow">JavaScript · GitHub Pages</p>
+        <h3><span class="fr">Guide de voyage</span><span class="en">Travel guide</span></h3>
+        <p><span class="fr">Un guide personnel généré à partir des métadonnées de ma photothèque.</span><span class="en">A personal guide generated from my photo library’s metadata.</span></p>
+        <div class="figs">
+          <div><b>25</b><span><span class="fr">pays</span><span class="en">countries</span></span></div>
+          <div><b>318</b><span><span class="fr">villes</span><span class="en">cities</span></span></div>
+          <div><b><span class="fr">2&#8239;658</span><span class="en">2,658</span></b><span><span class="fr">lieux</span><span class="en">places</span></span></div>
+        </div>
+        <div class="linkrow"><a class="chev" href="https://badi-project.github.io/guide-voyage/" target="_blank" rel="noopener"><span class="fr">Ouvrir le guide</span><span class="en">Open the guide</span></a><a class="chev" href="https://github.com/badi-project/guide-voyage" target="_blank" rel="noopener"><span class="fr">Voir le code</span><span class="en">View the code</span></a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section class="band paper" id="parcours">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Parcours</span><span class="en">Path</span></p>
+      <h2 class="h2"><span class="fr">Toulouse, Tokyo, Shenyang, Cambridge.</span><span class="en">Toulouse, Tokyo, Shenyang, Cambridge.</span></h2>
+    </div>
+    <ol class="timeline">
+      <li><div><p class="when">10/2026</p><p class="where"><span class="fr">Cambridge, Royaume-Uni</span><span class="en">Cambridge, UK</span></p></div><div><h3><span class="fr">Poster · GMMT 2026, Université de Cambridge</span><span class="en">Poster · GMMT 2026, University of Cambridge</span></h3><p><span class="fr">Gonville &amp; Caius College, du 9 au 11 octobre. Article de conférence soumis aux Springer Proceedings in Materials.</span><span class="en">Gonville &amp; Caius College, 9 to 11 October. Conference paper submitted to Springer Proceedings in Materials.</span></p></div></li>
+      <li><div><p class="when">03 → 08/2026</p><p class="where"><span class="fr">Shenyang, Chine</span><span class="en">Shenyang, China</span></p></div><div><h3><span class="fr">Stage de recherche · E²MC, Northeastern University</span><span class="en">Research internship · E²MC, Northeastern University</span></h3><p><span class="fr">Encadré par le Pr Ali Reza Kamali, co-encadré par le Pr Christophe Tenailleau (CIRIMAT). Synthèse et traitement thermique des poudres de (FeCoNiCrMn)₃O₄ ; caractérisation DRX, MEB/EDX, MET et UV-Vis/DRS ; essais électrochimiques (LSV, CV, EIS) et photocatalytiques ; analyse sous Python et Origin.</span><span class="en">Supervised by Prof. Ali Reza Kamali, co-supervised by Prof. Christophe Tenailleau (CIRIMAT). Synthesis and heat treatment of (FeCoNiCrMn)₃O₄ powders; XRD, SEM/EDX, TEM and UV-Vis/DRS characterization; electrochemical (LSV, CV, EIS) and photocatalytic testing; analysis in Python and Origin.</span></p></div></li>
+      <li><div><p class="when">04 → 06/2025</p><p class="where">Toulouse</p></div><div><h3><span class="fr">Stage · CIRIMAT, Université de Toulouse</span><span class="en">Internship · CIRIMAT, University of Toulouse</span></h3><p><span class="fr">Projet avec l’industriel Gaches Chimie : une méthode de contrôle pour identifier les produits chimiques à leur réception sur des sites Seveso. Banc à microbalance à quartz (QCM), essais de répétabilité, protocole de mesure. Encadré par Pierre-Louis Taberna et Guillaume Demol.</span><span class="en">Project with the industrial partner Gaches Chimie: a control method to identify chemicals on delivery at Seveso sites. Quartz crystal microbalance (QCM) bench, repeatability tests, measurement protocol. Supervised by Pierre-Louis Taberna and Guillaume Demol.</span></p></div></li>
+      <li><div><p class="when">09/2024 → 06/2026</p><p class="where">Toulouse</p></div><div><h3><span class="fr">Master Science et Génie des Matériaux · mention Bien, 4ᵉ sur 20</span><span class="en">MSc in Materials Science and Engineering · with honours, ranked 4th of 20</span></h3><p><span class="fr">Université de Toulouse, parcours Matériaux et Structures pour l’Aéronautique et l’Espace. M2 : comportement en service, procédés, qualification et certification, CND. M1 : métaux, céramiques, polymères, composites, corrosion, traitements de surface.</span><span class="en">University of Toulouse, Materials and Structures for Aeronautics and Space track. Second year: in-service behaviour, processes, qualification and certification, NDT. First year: metals, ceramics, polymers, composites, corrosion, surface treatments.</span></p><p><span class="fr">Projets et TP : superalliages base nickel, barrières thermiques MCrAlY, défaillances aéronautiques, aile de drone sous Nastran, TP à l’INSA, à l’ENSIACET et à DGA Techniques aéronautiques.</span><span class="en">Projects and labs: nickel-based superalloys, MCrAlY thermal barrier coatings, aerospace failures, a drone wing in Nastran, labs at INSA, ENSIACET and DGA Techniques aéronautiques.</span></p></div></li>
+      <li><div><p class="when">03 → 06/2024</p><p class="where"><span class="fr">Tokyo, Japon</span><span class="en">Tokyo, Japan</span></p></div><div><h3><span class="fr">Stage · AORI, Université de Tokyo</span><span class="en">Internship · AORI, University of Tokyo</span></h3><p><span class="fr">Simulation numérique avec le modèle atmosphérique NICAM et traitement de données à grande échelle sous Python. Encadré par le Pr Masaki Satoh.</span><span class="en">Numerical simulation with the NICAM atmospheric model and large-scale data processing in Python. Supervised by Prof. Masaki Satoh.</span></p></div></li>
+      <li><div><p class="when">09/2021 → 06/2024</p><p class="where">Toulouse</p></div><div><h3><span class="fr">Licence de Physique, Parcours Spécial</span><span class="en">BSc in Physics, honours programme (Parcours Spécial)</span></h3><p><span class="fr">Cursus sélectif orienté vers la physique théorique et la recherche.</span><span class="en">Selective programme focused on theoretical physics and research.</span></p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="band mist" id="competences">
+  <div class="wrap stack">
+    <div class="head">
+      <p class="eyebrow"><span class="fr">Compétences</span><span class="en">Skills</span></p>
+      <h2 class="h2"><span class="fr">Boîte à outils.</span><span class="en">Toolkit.</span></h2>
+    </div>
+    <div class="skills">
+      <div><h3><span class="fr">Métallurgie</span><span class="en">Metallurgy</span></h3><ul><li><span class="fr">Alliages et diagrammes de phases</span><span class="en">Alloys and phase diagrams</span></li><li><span class="fr">Traitements thermiques</span><span class="en">Heat treatment</span></li><li><span class="fr">Métallographie</span><span class="en">Metallography</span></li><li><span class="fr">Superalliages base nickel, MCrAlY</span><span class="en">Nickel-based superalloys, MCrAlY</span></li></ul></div>
+      <div><h3><span class="fr">Caractérisation</span><span class="en">Characterization</span></h3><ul><li><span class="fr">DRX, affinement Rietveld (FullProf)</span><span class="en">XRD, Rietveld refinement (FullProf)</span></li><li><span class="fr">MEB/EDX, MET, XRF</span><span class="en">SEM/EDX, TEM, XRF</span></li><li><span class="fr">Réflectance diffuse (Kubelka-Munk, Tauc)</span><span class="en">Diffuse reflectance (Kubelka-Munk, Tauc)</span></li><li><span class="fr">Spectroscopie UV-visible</span><span class="en">UV-visible spectroscopy</span></li></ul></div>
+      <div><h3><span class="fr">Qualité et essais</span><span class="en">Quality and testing</span></h3><ul><li><span class="fr">CND : ultrasons, radiographie, courants de Foucault, ressuage, magnétoscopie</span><span class="en">NDT: ultrasonics, radiography, eddy currents, dye penetrant, magnetic particles</span></li><li><span class="fr">Essais mécaniques, fractographie</span><span class="en">Mechanical testing, fractography</span></li><li><span class="fr">Analyse de défaillance</span><span class="en">Failure analysis</span></li><li><span class="fr">ISO 9001 et EN 9100 (notions)</span><span class="en">ISO 9001 and EN 9100 (fundamentals)</span></li></ul></div>
+      <div><h3><span class="fr">Électrochimie et corrosion</span><span class="en">Electrochemistry and corrosion</span></h3><ul><li><span class="fr">LSV, CV, pentes de Tafel</span><span class="en">LSV, CV, Tafel slopes</span></li><li><span class="fr">Impédance, chronopotentiométrie</span><span class="en">Impedance, chronopotentiometry</span></li><li><span class="fr">Corrosion aqueuse, courbes de polarisation</span><span class="en">Aqueous corrosion, polarisation curves</span></li><li><span class="fr">Anodisation</span><span class="en">Anodising</span></li></ul></div>
+      <div><h3><span class="fr">Synthèse</span><span class="en">Synthesis</span></h3><ul><li><span class="fr">Broyage planétaire</span><span class="en">Planetary ball milling</span></li><li><span class="fr">Calcination de poudres</span><span class="en">Powder calcination</span></li><li><span class="fr">Électrodes sur mousse de nickel et papier carbone</span><span class="en">Electrodes on nickel foam and carbon paper</span></li></ul></div>
+      <div><h3>Simulation</h3><ul><li><span class="fr">Nastran (aile de drone)</span><span class="en">Nastran (drone wing)</span></li><li><span class="fr">CHGNet (potentiel interatomique appris)</span><span class="en">CHGNet (machine-learned interatomic potential)</span></li><li><span class="fr">NICAM (modèle atmosphérique)</span><span class="en">NICAM (atmospheric model)</span></li><li><span class="fr">MATLAB (bases)</span><span class="en">MATLAB (basics)</span></li></ul></div>
+      <div><h3><span class="fr">Code et données</span><span class="en">Code and data</span></h3><ul><li>Python (scikit-learn, matplotlib)</li><li>JavaScript, TypeScript, Node.js</li><li>Swift, Java</li><li>Origin, LaTeX, Zotero</li></ul></div>
+      <div><h3><span class="fr">Langues</span><span class="en">Languages</span></h3><ul><li><span class="fr">Français, langue maternelle</span><span class="en">French, native</span></li><li><span class="fr">Anglais professionnel, 9 mois de stage en anglais</span><span class="en">English, professional, 9 months of internships in English</span></li><li><span class="fr">Chinois, A1, cours et préparation du HSK</span><span class="en">Chinese, A1, taking classes and preparing the HSK</span></li><li><span class="fr">Allemand, A1</span><span class="en">German, A1</span></li></ul></div>
+    </div>
+    <div class="engage">
+      <div><h3>Scouts et Éclaireurs de France</h3><p><span class="fr">Actions locales et gestion d’équipe.</span><span class="en">Local community work and team leadership.</span></p></div>
+      <div><h3><span class="fr">Sulubaai Foundation, Philippines</span><span class="en">Sulubaai Foundation, Philippines</span></h3><p><span class="fr">Protection de l’environnement et sensibilisation à la pêche durable.</span><span class="en">Environmental protection and awareness of sustainable fishing.</span></p></div>
+      <div><h3>Union des Parcours Spéciaux</h3><p><span class="fr">Organisation d’événements étudiants.</span><span class="en">Organising student events.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="band night" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2 class="h2"><span class="fr">Écrivez-moi.</span><span class="en">Get in touch.</span></h2>
+      <p class="lead" style="max-width:32ch"><span class="fr">Je cherche une thèse CIFRE ou un poste d’ingénieur matériaux, <span class="dim">en priorité à Marseille ou à Paris.</span></span><span class="en">I’m looking for an industrial PhD (CIFRE) or a materials engineer role, <span class="dim">ideally in Marseille or Paris.</span></span></p>
+      <div class="mail"><span id="email">baditanipro@gmail.com</span><button type="button" class="copy" id="copy">Copier</button></div>
+      <div class="linkrow">
+        <a class="chev" href="https://www.linkedin.com/in/badi-megueni-tani-7aa416221/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="chev" href="https://github.com/badi-project" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <footer class="foot"><span>Badi Megueni-Tani</span><span><span class="fr">Mis à jour en novembre 2026</span><span class="en">Updated November 2026</span></span></footer>
+  </div>
+</section>
+</main>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const root = document.documentElement;
+const mqRM = matchMedia('(prefers-reduced-motion: reduce)');
+let reduced = mqRM.matches;
+if (mqRM.addEventListener) mqRM.addEventListener('change', e => { reduced = e.matches; });
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const cssVar = (n, el) => getComputedStyle(el || root).getPropertyValue(n).trim();
+function toRgb(s) {
+  s = (s || '').trim();
+  if (s[0] === '#') { let h = s.slice(1); if (h.length === 3) h = h.split('').map(c => c + c).join(''); const n = parseInt(h.slice(0, 6), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+  const m = s.match(/[\d.]+/g); return m ? m.slice(0, 3).map(Number) : [128, 128, 128];
+}
+const mix = (a, b, t) => a.map((v, i) => v + (b[i] - v) * t);
+const rgba = (c, a) => `rgba(${Math.round(c[0])},${Math.round(c[1])},${Math.round(c[2])},${a == null ? 1 : a})`;
+function whenVisible(el, cb) {
+  if (!('IntersectionObserver' in window)) { cb(true); return; }
+  new IntersectionObserver(es => es.forEach(e => cb(e.isIntersecting)), { rootMargin: '60px' }).observe(el);
+}
+
+/* ---------- language ---------- */
+const langCbs = [];
+const lang = () => (root.dataset.lang === 'en' ? 'en' : 'fr');
+const num = (n, d) => n.toLocaleString(lang() === 'en' ? 'en-GB' : 'fr-FR', { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 });
+const pct = (n, d) => lang() === 'en' ? `${num(n, d)}%` : `${num(n, d)} %`;
+function setLang(l, save) {
+  root.dataset.lang = l; root.setAttribute('lang', l);
+  $$('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === l)));
+  const E = l === 'en';
+  $$('[data-aria-fr]').forEach(e => e.setAttribute('aria-label', E ? e.dataset.ariaEn : e.dataset.ariaFr));
+  $$('[data-alt-fr]').forEach(e => { e.alt = E ? e.dataset.altEn : e.dataset.altFr; });
+  if (save) { try { localStorage.setItem('bmt-lang', l); } catch (err) { /* storage unavailable */ } }
+  langCbs.forEach(f => f());
+}
+let initial = 'fr';
+try { initial = localStorage.getItem('bmt-lang') || 'fr'; } catch (err) { /* storage unavailable */ }
+if (location.hash === '#en') initial = 'en'; else if (location.hash === '#fr') initial = 'fr';
+setLang(initial, false);
+$$('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l, true)));
+
+/* ---------- theme + scroll hubs ---------- */
+const themeCbs = [];
+const onTheme = () => themeCbs.forEach(f => f());
+const mqDark = matchMedia('(prefers-color-scheme: dark)');
+if (mqDark.addEventListener) mqDark.addEventListener('change', onTheme);
+new MutationObserver(onTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+const scrollCbs = [];
+let ticking = false;
+const onScroll = () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; scrollCbs.forEach(f => f()); }); };
+addEventListener('scroll', onScroll, { passive: true });
+addEventListener('resize', onScroll);
+
+/* ---------- spinel unit cell ---------- */
+(function lattice() {
+  const cv = $('#lattice'); if (!cv) return;
+  const ctx = cv.getContext('2d');
+  const band = cv.closest('.night') || root;
+  const KEYS = ['cr', 'mn', 'fe', 'co', 'ni'];
+  let EC, OX, INK;
+  const readColors = () => { EC = KEYS.map(k => toRgb(cssVar('--' + k, band))); OX = toRgb(cssVar('--oxy', band)); INK = toRgb(cssVar('--night-ink', band)); };
+  readColors();
+  const FCC = [[0, 0, 0], [0, .5, .5], [.5, 0, .5], [.5, .5, 0]];
+  const wrap = v => ((v % 1) + 1) % 1;
+  const key = p => p.map(v => Math.round(wrap(v) * 8) % 8).join(',');
+  const seen = new Map(); const sites = [];
+  const add = (bases, type) => bases.forEach(b => FCC.forEach(f => {
+    const p = [0, 1, 2].map(i => wrap(b[i] + f[i])); const k = key(p);
+    if (!seen.has(k)) { seen.set(k, sites.length); sites.push({ p, type }); }
+  }));
+  add([[0, 0, 0], [.75, .25, .75]], 'A');                                   // 8a tetrahedral
+  add([[5 / 8, 5 / 8, 5 / 8], [3 / 8, 7 / 8, 1 / 8], [7 / 8, 1 / 8, 3 / 8], [1 / 8, 3 / 8, 7 / 8]], 'B'); // 16d octahedral
+  const pd = (a, b) => Math.hypot(...a.map((v, i) => { const d = Math.abs(v - b[i]); return Math.min(d, 1 - d); }));
+  const oxy = [];
+  const dA = Math.sqrt(3) / 8, dB = .25;
+  for (let i = 0; i < 8; i++) for (let j = 0; j < 8; j++) for (let k = 0; k < 8; k++) {
+    const p = [i / 8, j / 8, k / 8]; if (seen.has(key(p))) continue;
+    let nA = 0, nB = 0;
+    for (const s of sites) { const d = pd(p, s.p); if (s.type === 'A' && Math.abs(d - dA) < 1e-6) nA++; else if (s.type === 'B' && Math.abs(d - dB) < 1e-6) nB++; }
+    if (nA === 1 && nB === 3) oxy.push(p);                                   // 32e, ideal u
+  }
+  const occ = sites.map((_, i) => i % 5);
+  for (let i = occ.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; const t = occ[i]; occ[i] = occ[j]; occ[j] = t; }
+  sites.forEach((s, i) => { s.el = occ[i]; s.col = EC[s.el].slice(); s.from = s.col.slice(); s.t = 1; });
+  const atoms = [];
+  const images = p => { let list = [p.slice()]; for (let ax = 0; ax < 3; ax++) if (p[ax] === 0) list = list.concat(list.map(q => { const r = q.slice(); r[ax] = 1; return r; })); return list; };
+  sites.forEach((s, i) => images(s.p).forEach(q => atoms.push({ q, site: i })));
+  oxy.forEach(q => atoms.push({ q, site: -1 }));
+  const bonds = [];
+  atoms.forEach((a, i) => {
+    if (a.site < 0) return;
+    const want = sites[a.site].type === 'A' ? dA : dB;
+    atoms.forEach((b, j) => { if (b.site !== -1) return; const d = Math.hypot(a.q[0] - b.q[0], a.q[1] - b.q[1], a.q[2] - b.q[2]); if (Math.abs(d - want) < 1e-3) bonds.push([i, j]); });
+  });
+  const corners = []; for (let i = 0; i < 8; i++) corners.push([i & 1, i >> 1 & 1, i >> 2 & 1]);
+  const edges = []; for (let i = 0; i < 8; i++) for (let j = i + 1; j < 8; j++) { let d = 0; for (let k = 0; k < 3; k++) d += Math.abs(corners[i][k] - corners[j][k]); if (d === 1) edges.push([i, j]); }
+
+  let W = 0, H = 0, DPR = 1, S = 1, ry = .62, rx = -.4, vel = 0, hl = null, pinned = null, scrollRot = 0;
+  const proj = new Array(atoms.length);
+  function P(q) {
+    const x = q[0] - .5, y = q[1] - .5, z = q[2] - .5, a = ry + scrollRot;
+    const ca = Math.cos(a), sa = Math.sin(a);
+    const x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+    const cb = Math.cos(rx), sb = Math.sin(rx);
+    const y2 = y * cb - z1 * sb, z2 = y * sb + z1 * cb;
+    const f = 3.2, s = f / (f - z2);
+    return [W / 2 + x1 * S * s, H / 2 + y2 * S * s, z2, s];
+  }
+  function sphere(x, y, r, c, a) {
+    const g = ctx.createRadialGradient(x - r * .38, y - r * .42, r * .08, x, y, r);
+    g.addColorStop(0, rgba(mix(c, [255, 255, 255], .62), a));
+    g.addColorStop(.5, rgba(c, a));
+    g.addColorStop(1, rgba(mix(c, [0, 0, 0], .58), a));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill();
+  }
+  function draw() {
+    if (!W) return;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const act = pinned !== null ? pinned : hl;
+    const cp = corners.map(P);
+    ctx.lineWidth = 1; ctx.strokeStyle = rgba(INK, .2);
+    ctx.beginPath(); edges.forEach(([i, j]) => { ctx.moveTo(cp[i][0], cp[i][1]); ctx.lineTo(cp[j][0], cp[j][1]); }); ctx.stroke();
+    for (let i = 0; i < atoms.length; i++) proj[i] = P(atoms[i].q);
+    ctx.strokeStyle = rgba(INK, act === null ? .13 : .05);
+    ctx.beginPath(); bonds.forEach(([i, j]) => { ctx.moveTo(proj[i][0], proj[i][1]); ctx.lineTo(proj[j][0], proj[j][1]); }); ctx.stroke();
+    const order = atoms.map((_, i) => i).sort((a, b) => proj[a][2] - proj[b][2]);
+    for (const i of order) {
+      const a = atoms[i], p = proj[i], depth = clamp((p[2] + .9) / 1.8, 0, 1);
+      let alpha = .45 + .55 * depth;
+      if (a.site < 0) { if (act !== null) alpha *= .22; sphere(p[0], p[1], .033 * S * p[3], OX, alpha * .85); continue; }
+      const s = sites[a.site]; let r = .068 * S * p[3];
+      if (act !== null) { if (s.el === act) r *= 1.16; else alpha *= .12; }
+      sphere(p[0], p[1], r, s.col, alpha);
+    }
+  }
+  function resize() {
+    const r = cv.getBoundingClientRect(); if (!r.width) return;
+    DPR = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height;
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); S = Math.min(W, H) * .41; draw();
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe(cv); else addEventListener('resize', resize);
+  resize();
+
+  let running = false, last = 0, swapT = 0, inView = true;
+  function swap() {
+    const i = Math.random() * sites.length | 0; let j = Math.random() * sites.length | 0, n = 0;
+    while (sites[j].el === sites[i].el && n++ < 30) j = Math.random() * sites.length | 0;
+    const t = sites[i].el; sites[i].el = sites[j].el; sites[j].el = t;
+    [i, j].forEach(k => { sites[k].from = sites[k].col.slice(); sites[k].t = 0; });
+  }
+  function frame(t) {
+    if (!running) return;
+    const dt = last ? Math.min(48, t - last) : 16; last = t;
+    ry += dt * .00016 + vel; vel *= .93;
+    swapT += dt; if (swapT > 1400) { swapT = 0; swap(); }
+    sites.forEach(s => { if (s.t < 1) { s.t = Math.min(1, s.t + dt / 650); const e = s.t * s.t * (3 - 2 * s.t); s.col = mix(s.from, EC[s.el], e); } });
+    draw(); requestAnimationFrame(frame);
+  }
+  const start = () => { if (running || reduced || !inView || document.hidden) return; running = true; last = 0; requestAnimationFrame(frame); };
+  const stop = () => { running = false; };
+  whenVisible(cv, v => { inView = v; if (v) start(); else stop(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else start(); });
+  scrollCbs.push(() => { if (reduced) return; scrollRot = window.scrollY * .0011; if (!running) draw(); });
+
+  let drag = null;
+  cv.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY }; try { cv.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } });
+  cv.addEventListener('pointermove', e => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag = { x: e.clientX, y: e.clientY };
+    ry += dx * .009; rx = clamp(rx + dy * .006, -1.3, 1.3); vel = reduced ? 0 : dx * .0009;
+    if (!running) draw();
+  });
+  const end = () => { drag = null; };
+  cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+  cv.addEventListener('keydown', e => {
+    const k = e.key; let used = true;
+    if (k === 'ArrowLeft') ry -= .15; else if (k === 'ArrowRight') ry += .15;
+    else if (k === 'ArrowUp') rx = clamp(rx - .12, -1.3, 1.3); else if (k === 'ArrowDown') rx = clamp(rx + .12, -1.3, 1.3);
+    else used = false;
+    if (used) { e.preventDefault(); if (!running) draw(); }
+  });
+  const tiles = $$('.el-tile');
+  tiles.forEach(b => {
+    const i = +b.dataset.i;
+    b.addEventListener('mouseenter', () => { hl = i; draw(); });
+    b.addEventListener('mouseleave', () => { hl = null; draw(); });
+    b.addEventListener('focus', () => { hl = i; draw(); });
+    b.addEventListener('blur', () => { hl = null; draw(); });
+    b.addEventListener('click', () => { pinned = pinned === i ? null : i; tiles.forEach(o => o.setAttribute('aria-pressed', String(+o.dataset.i === pinned))); draw(); });
+  });
+  themeCbs.push(() => { readColors(); sites.forEach(s => { s.col = EC[s.el].slice(); s.t = 1; }); draw(); });
+})();
+
+/* ---------- words light up while scrolling ---------- */
+(function reveal() {
+  const p = $('#reveal'); if (!p) return;
+  $$('.fr, .en', p).forEach(sp => {
+    const words = sp.textContent.trim().split(/\s+/); sp.textContent = '';
+    words.forEach((w, i) => { const s = document.createElement('span'); s.className = 'w'; s.textContent = w; sp.appendChild(s); if (i < words.length - 1) sp.appendChild(document.createTextNode(' ')); });
+  });
+  function upd() {
+    const ws = $$('.' + lang() + ' .w', p);
+    if (reduced) { ws.forEach(w => w.classList.remove('dim')); return; }
+    const r = p.getBoundingClientRect(), vh = window.innerHeight;
+    const prog = clamp((vh * .88 - r.top) / (vh * .45 + r.height * .6), 0, 1);
+    const n = Math.round(prog * ws.length);
+    ws.forEach((w, i) => w.classList.toggle('dim', i >= n));
+  }
+  scrollCbs.push(upd); langCbs.push(upd); upd();
+})();
+
+/* ---------- X-ray diffraction pattern ---------- */
+(function xrd() {
+  const svg = $('#xrd'); if (!svg) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const A = 8.328, LAM = 1.5406; // Å, Cu Kα1
+  const HKL = [[1, 1, 1, .10, 1], [2, 2, 0, .38, 1], [3, 1, 1, 1, 1], [2, 2, 2, .08, 0], [4, 0, 0, .27, 1], [3, 3, 1, .03, 0], [4, 2, 2, .08, 1], [5, 1, 1, .32, 1], [4, 4, 0, .42, 1]];
+  const peaks = HKL.map(([h, k, l, I, lab]) => { const d = A / Math.hypot(h, k, l); return { hkl: `(${h}${k}${l})`, d, tt: 2 * Math.asin(LAM / (2 * d)) * 180 / Math.PI, I, lab }; });
+  const X0 = 52, X1 = 616, Y0 = 212, YT = 40;
+  const sx = t => X0 + (t - 10) / 60 * (X1 - X0);
+  const prof = t => { let y = .035; peaks.forEach(p => { const w = .26 + .0025 * p.tt, u = (t - p.tt) / (w / 2); y += p.I * (.5 / (1 + u * u) + .5 * Math.exp(-.6931 * u * u)); }); return y; };
+  const sy = v => Y0 - v / 1.05 * (Y0 - YT);
+  let d = ''; for (let t = 10; t <= 70.001; t += .04) d += (d ? 'L' : 'M') + sx(t).toFixed(1) + ' ' + sy(prof(t)).toFixed(1);
+  $('#xrd-line', svg).setAttribute('d', d);
+  $('#xrd-area', svg).setAttribute('d', d + `L${X1} ${Y0}L${X0} ${Y0}Z`);
+  const g = $('#xrd-axes', svg);
+  const el = (n, a, txt) => { const e = document.createElementNS(NS, n); Object.keys(a).forEach(k => e.setAttribute(k, a[k])); if (txt != null) e.textContent = txt; g.appendChild(e); return e; };
+  el('line', { x1: X0, x2: X1, y1: Y0, y2: Y0, class: 'ax' });
+  for (let t = 10; t <= 70; t += 10) { el('line', { x1: sx(t), x2: sx(t), y1: Y0, y2: Y0 + 4, class: 'ax' }); el('text', { x: sx(t), y: Y0 + 36, class: 'tk', 'text-anchor': 'middle' }, String(t)); }
+  el('text', { x: X1, y: Y0 + 56, class: 'tk', 'text-anchor': 'end' }, '2θ (°)');
+  peaks.forEach(p => { el('line', { x1: sx(p.tt), x2: sx(p.tt), y1: Y0 + 9, y2: Y0 + 19, class: 'bragg' }); if (p.lab) el('text', { x: sx(p.tt), y: sy(prof(p.tt)) - 9, class: 'hkl', 'text-anchor': 'middle' }, p.hkl); });
+  const cur = $('#xrd-cur', svg), line = $('line', cur), txt = $('text', cur);
+  let tt = 35.73, auto = true, running = false, last = 0;
+  const nearest = () => { let n = null; peaks.forEach(p => { if (Math.abs(p.tt - tt) < .45 && (!n || p.I > n.I)) n = p; }); return n; };
+  function place() {
+    const x = sx(tt); line.setAttribute('x1', x); line.setAttribute('x2', x);
+    const n = nearest(), base = `2θ = ${num(tt, 2)}°`;
+    txt.textContent = n ? `${base}   ${n.hkl}   d = ${num(n.d, 3)} Å` : base;
+    const right = x > (X0 + X1) / 2; txt.setAttribute('x', right ? x - 8 : x + 8); txt.setAttribute('text-anchor', right ? 'end' : 'start');
+  }
+  function frame(t) {
+    if (!running) return;
+    const dt = last ? Math.min(48, t - last) : 16; last = t;
+    if (auto) { const n = nearest(); tt += dt * (n && n.I > .05 ? .0018 : .0075); if (tt > 70) tt = 10; place(); }
+    requestAnimationFrame(frame);
+  }
+  svg.addEventListener('pointermove', e => {
+    const m = svg.getScreenCTM(); if (!m) return;
+    const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const q = pt.matrixTransform(m.inverse());
+    tt = clamp(10 + (q.x - X0) / (X1 - X0) * 60, 10, 70); auto = false; place();
+  });
+  svg.addEventListener('pointerleave', () => { auto = true; });
+  whenVisible(svg, v => { if (v && !reduced && !running) { running = true; last = 0; requestAnimationFrame(frame); } else if (!v) running = false; });
+  place(); langCbs.push(place);
+})();
+
+/* ---------- photocatalysis cuvette ---------- */
+(function photo() {
+  const box = $('#pc'); if (!box) return;
+  const svg = $('#pc-chart'), liquid = $('#pc-liquid'), glow = $('#pc-glow'), out = $('#pc-out'), range = $('#pc-t');
+  const MODES = {
+    uv: { pts: [[0, 1], [61, .5], [240, .007]], c: '--uv' },     // t½ ≈ 61 min, 99.3 % in < 4 h
+    vis: { pts: [[0, 1], [69, .5], [330, .022]], c: '--blue450' }, // k = 1.0e-2 min⁻¹, 97.8 % in 5.5 h
+    tio2: { pts: [[0, 1], [70, 1]], c: '--ink-3' }                // no conversion in 70 min
+  };
+  let mode = 'uv', t = 0, manual = false;
+  const tmax = m => MODES[m].pts[MODES[m].pts.length - 1][0];
+  function C(m, x) {
+    const P = MODES[m].pts; if (x >= tmax(m)) return P[P.length - 1][1];
+    for (let i = 0; i < P.length - 1; i++) if (x <= P[i + 1][0]) { const f = (x - P[i][0]) / (P[i + 1][0] - P[i][0]); return Math.exp(Math.log(P[i][1]) + (Math.log(P[i + 1][1]) - Math.log(P[i][1])) * f); }
+    return 1;
+  }
+  const X0 = 46, X1 = 404, Y0 = 196, YT = 18, TM = 330;
+  const sx = v => X0 + v / TM * (X1 - X0), sy = c => Y0 - c * (Y0 - YT);
+  const NS = 'http://www.w3.org/2000/svg';
+  const mk = (parent, n, a, txt) => { const e = document.createElementNS(NS, n); Object.keys(a).forEach(k => e.setAttribute(k, a[k])); if (txt != null) e.textContent = txt; parent.appendChild(e); return e; };
+  const grid = $('#pc-grid', svg), curves = $('#pc-curves', svg);
+  [0, .25, .5, .75, 1].forEach(c => mk(grid, 'line', { x1: X0, x2: X1, y1: sy(c), y2: sy(c), class: c === 0 ? 'ax' : 'gl' }));
+  const yl = [[0, 0], [.5, 1], [1, 0]].map(([c]) => mk(grid, 'text', { x: X0 - 8, y: sy(c) + 4, class: 'tk', 'text-anchor': 'end' }, ''));
+  [0, 60, 120, 180, 240, 300].forEach(v => mk(grid, 'text', { x: sx(v), y: Y0 + 20, class: 'tk', 'text-anchor': 'middle' }, String(v)));
+  mk(grid, 'text', { x: X1, y: Y0 + 38, class: 'tk', 'text-anchor': 'end' }, 'min');
+  mk(grid, 'text', { x: X0 + 6, y: YT - 6, class: 'tk' }, 'C/C₀');
+  const paths = {};
+  Object.keys(MODES).forEach(m => {
+    let d = ''; for (let x = 0; x <= tmax(m) + .001; x += 2) d += (d ? 'L' : 'M') + sx(x).toFixed(1) + ' ' + sy(C(m, x)).toFixed(1);
+    paths[m] = mk(curves, 'path', { d, class: 'curve', 'data-m': m });
+  });
+  const guide = $('#pc-guide', svg), dot = $('#pc-dot', svg);
+  function render() {
+    const c = C(mode, t), end = t >= tmax(mode), E = lang() === 'en';
+    Object.keys(paths).forEach(m => { paths[m].style.stroke = `var(${MODES[m].c})`; paths[m].classList.toggle('on', m === mode); });
+    if (paths[mode].nextSibling) curves.appendChild(paths[mode]);
+    const tc = Math.min(t, tmax(mode));
+    guide.setAttribute('x1', sx(t)); guide.setAttribute('x2', sx(t));
+    dot.setAttribute('cx', sx(tc)); dot.setAttribute('cy', sy(c)); dot.style.fill = `var(${MODES[mode].c})`;
+    const water = toRgb(cssVar('--water', box)), dye = toRgb(cssVar('--cv', box));
+    liquid.style.backgroundColor = rgba(mix(water, dye, c * .94));
+    glow.style.setProperty('--glow', `var(${mode === 'uv' ? '--uv' : '--blue450'})`);
+    yl[0].textContent = '0'; yl[1].textContent = num(.5, 1); yl[2].textContent = '1';
+    out.textContent = `t = ${Math.round(t)} min · C/C₀ = ${num(c, 2)} · ${E ? 'removed' : 'éliminé'} ${pct((1 - c) * 100, 1)}${end && mode !== 'uv' && t > tmax(mode) ? (E ? ' · end of data' : ' · fin des mesures') : ''}`;
+    if (+range.value !== Math.round(t)) range.value = Math.round(t);
+  }
+  $$('#pc-modes button').forEach(b => b.addEventListener('click', () => {
+    mode = b.dataset.m; $$('#pc-modes button').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+    if (!manual) t = Math.min(t, tmax(mode)); render();
+  }));
+  range.addEventListener('input', () => { manual = true; t = +range.value; render(); });
+  scrollCbs.push(() => {
+    if (manual) return;
+    const r = box.getBoundingClientRect(), vh = window.innerHeight;
+    const p = clamp((vh * .82 - r.top) / (vh * .62), 0, 1);
+    const nt = Math.round(p * tmax(mode)); if (nt !== t) { t = nt; render(); }
+  });
+  langCbs.push(render); themeCbs.push(render); render();
+})();
+
+/* ---------- heo-platform map ---------- */
+(function heoMap() {
+  const cv = $('#map'); if (!cv) return;
+  const ctx = cv.getContext('2d'), tip = $('#map-tip'), card = cv.closest('.map-card');
+  const DATA = [[-6.8,-1.4,113,0,"CoCrFeMnNi"],[-5.61,1.09,96,2,"CoCuMgNiZn"],[4.35,2.54,26,1,"CoCrFeLaMnNi"],[-7.21,-1.62,25,0,"CoCuFeMnNi"],[-6.87,-0.28,19,0,"CoFeMnNiZn"],[-7.41,-1.09,18,0,"CoCuFeNiZn"],[-6.72,-2.09,9,0,"CoCrCuFeNi"],[7.06,-12.88,8,3,"CeLaPrSmY"],[-6.33,0.06,8,0,"CrFeMnNiZn"],[-6.05,-0.2,7,0,"CoCrFeMnZn"],[-6.0,1.57,7,0,"CoCuFeMgNiZn"],[-7.06,-1.14,7,2,"CoCuMnNiZn"],[12.26,7.51,6,1,"BaBiCaNaSrTi"],[-5.38,1.15,6,2,"CoCrCuMgNiZn"],[4.16,2.57,6,1,"CoCuFeLaMnNi"],[-6.1,0.22,6,0,"CoCuFeMgNi"],[-5.63,0.78,6,0,"CoFeMgMnNi"],[-6.72,-1.29,6,0,"CrCuFeMnNi"],[2.98,-7.75,6,-1,"HfNbTaTiZr"],[-5.92,0.37,5,0,"AlCoCrFeNi"],[-4.48,3.07,5,0,"AlMgMnNiZn"],[-7.22,-0.4,5,0,"CoCuFeMnNiZn"],[5.72,4.59,5,1,"CoCrFeLaMnNiSr"],[-6.57,0.15,5,0,"CoCrFeMnNiZn"],[6.25,4.46,5,1,"CoCuFeLaMnNiSr"],[5.84,-0.6,5,1,"CoGdLaNdSmY"],[-4.72,1.4,5,0,"CrFeMgMnNi"],[6.27,-1.41,4,3,"AlCeHfYZr"],[-5.89,1.63,4,0,"AlCoFeMnNi"],[-5.7,1.4,4,0,"AlCrFeMnNi"],[13.15,7.98,4,1,"BaBiCaCeKNaSrTi"],[14.21,4.87,4,1,"BaHfNbSnTiZr"],[7.49,-9.21,4,3,"CeLaNdSmZr"],[-4.25,-1.68,4,0,"CoCrFeMoNi"],[-6.83,-0.4,4,0,"CoCrFeNiZn"],[-3.84,4.48,4,2,"CoCuLiMgNiZn"],[-5.49,1.83,4,2,"CoFeMgNiZn"],[5.95,-0.59,4,1,"EuLaNdNiPrSm"],[-5.96,1.43,3,0,"AlCoCrFeMnNi"],[-4.79,3.4,3,0,"AlCoCuMgNiZn"],[-5.73,2.2,3,0,"AlCoMnNiZn"],[12.21,6.0,3,1,"BaCaLaPbSrTi"],[11.3,7.29,3,1,"BaCaMgPbSrTi"],[7.3,-9.32,3,3,"CeGdLaYZr"],[-6.59,-1.13,3,0,"CoCrCuFeMn"],[-5.75,0.19,3,0,"CoCrFeGaMnNi"],[-6.78,-0.34,3,0,"CoCuFeMnZn"],[-5.73,1.12,3,0,"CoCuMgMnNiZn"],[-3.79,5.51,3,0,"CoFeLiMnNiZn"],[-4.57,2.0,3,2,"CoFeMgMnZn"],[-5.84,0.32,3,0,"CoFeNiTiZn"],[6.63,-1.97,3,5,"CuEuLaNdPrSm"],[3.91,-15.97,3,-1,"DyErHoTmYb"],[7.6,-8.64,3,4,"EuGdLaNdSmZr"],[-1.53,0.71,3,-1,"GeMnMoSnTi"],[-4.65,4.33,2,0,"AlCoCrCuFeGaMgMnNiZn"],[-5.72,0.8,2,0,"AlCoCrCuFeNi"],[-4.89,3.94,2,0,"AlCoCrFeMgMnNiZn"],[-6.11,2.04,2,0,"AlCoCuFeNiZn"],[-2.48,6.44,2,5,"AlCoFeLiMnNi"],[-5.06,1.09,2,0,"AlCoFeNiTi"],[-4.89,1.89,2,0,"AlFeMnNiTi"],[-5.56,2.49,2,0,"AlFeMnNiZn"],[13.57,7.8,2,1,"BaBiCaKSrTi"],[12.17,6.18,2,1,"BaBiCaLaSnSrTi"],[9.58,4.96,2,1,"BaCaCeCoLaSr"],[10.1,5.54,2,1,"BaCaFeLaPrSr"],[9.69,4.82,2,1,"BaCoFeLaNdPrSr"],[9.94,4.86,2,1,"BaCoFeLaNdSmSr"],[14.04,0.96,2,1,"BaHfSrTiZr"],[12.31,5.15,2,1,"BaNbTaTiZn"],[6.52,1.69,2,3,"CaCeSnTiZr"],[4.84,4.02,2,1,"CaCoCrFeLaMnNi"],[7.7,0.95,2,1,"AlGdLaNdPrSm"],[-0.18,1.3,2,-1,"CeCoCuFeMn"],[0.37,1.27,2,3,"CeCoFeMnNi"],[7.01,-2.01,2,5,"CeCuEuLaNdPrSm"],[7.47,-9.42,2,3,"CeErLaYbZr"],[7.62,-5.71,2,3,"CeGdHfPrTiY"],[7.37,-9.27,2,3,"CeGdLaSmYZr"],[6.36,-10.04,2,3,"CeGdSmYZr"],[7.21,-9.08,2,3,"CeLaPrYZr"],[-6.83,-0.98,2,0,"CoCrCuFeMnNi"],[-6.75,0.35,2,0,"CoCrCuFeMnNiZn"],[-6.74,-2.13,2,0,"CoCrCuMnNi"],[-6.62,-1.17,2,0,"CoCrCuMnNiZn"],[-3.84,4.3,2,0,"CoCrFeLiMnNi"],[-4.43,1.05,2,0,"CoCrFeMgMn"],[-5.02,1.6,2,0,"CoCrFeMgMnNi"],[3.35,1.75,2,1,"CoCrFeMnNdNi"],[-4.11,4.33,2,0,"CoCrLiMnNiZn"],[-5.71,-1.01,2,0,"CoCrMnNiV"],[-6.51,-0.53,2,0,"CoCrMnNiZn"],[-5.87,-0.33,2,0,"CoCrNiVZn"],[-5.56,1.62,2,2,"CoCuFeMgZn"],[-0.14,-3.12,2,-1,"CoCuFeMnNiTa"],[-5.33,0.06,2,-1,"CoCuFeNiRuZn"],[5.82,9.16,2,2,"CoCuKMgNiZn"],[-0.52,5.59,2,2,"CoCuMgNaNiZn"],[-4.2,1.61,2,2,"CoCuMgNiScZn"],[-1.32,-1.7,2,-1,"CoFeMoNiW"],[7.72,2.82,2,1,"CoFeLaNdPrSmSr"],[-4.23,-0.46,2,0,"CoFeMnMoNi"],[-5.83,-0.5,2,2,"CoFeMnNiV"],[-3.69,4.39,2,2,"CoLiMgNiZn"],[-5.12,1.67,2,0,"CoMgMnNiZn"],[-5.47,0.1,2,0,"CrGaMnNiZn"],[6.35,-2.99,2,1,"CrDyEuGdLaNd"],[-4.75,2.27,2,0,"CrFeMgNiZn"],[8.14,-0.43,2,5,"CuEuLaNdPrSmSr"],[-5.15,1.93,2,2,"CuFeMgNiZn"],[-3.94,2.4,2,0,"CuFeMgTiZn"],[-6.81,-0.42,2,0,"CuFeMnNiZn"],[4.24,-2.03,2,1,"DyErFeGdHoTb"],[6.72,-10.47,2,4,"DyErGdSmYbZr"],[7.09,-13.02,2,-1,"ErEuGdLaY"],[3.84,-15.36,2,-1,"ErHoLuTmYb"],[4.81,0.08,2,-1,"AlErHoLuYYb"],[4.86,4.45,2,-1,"ErLuScSiTmYb"],[-4.03,2.44,2,0,"FeMgNiTiZn"],[8.06,2.22,2,-1,"GaLaNbTiW"],[2.66,-3.52,2,-1,"GaNbTaTiZr"],[6.51,-2.32,2,1,"GdLaMnNdSmSr"],[8.51,-8.35,2,3,"HfLaPrYZr"],[8.33,1.73,2,-1,"InLaNbTiW"],[0.02,4.66,1,0,"AgAlCrCuZn"],[6.93,4.6,1,1,"AgCoFeLaSr"],[11.11,7.87,1,1,"AlBaCaLaLiSrTi"],[2.99,3.92,1,-1,"AlBiFeGaMn"],[6.11,5.23,1,-1,"AlCaCeLaMgNi"],[7.4,4.37,1,1,"AlCaGdLaMnPrSr"],[-0.49,5.17,1,0,"AlCaMgMnZn"],[-0.76,4.45,1,0,"AlCdCrFeMgMn"],[6.49,3.7,1,1,"AlCeCoCuFeLa"],[1.71,3.27,1,3,"AlCeCoGaNi"],[1.89,3.45,1,-1,"AlCeCoMgNiZr"],[1.89,3.18,1,-1,"AlCeCuZnZr"],[5.1,4.48,1,-1,"AlCeLaMgNi"],[10.76,4.51,1,-1,"AlCeNbSnSrTiYZr"],[-3.04,2.03,1,-1,"AlCoCrCuFeMoNiTiV"],[-6.1,2.13,1,0,"AlCoCrCuFeNiZn"],[-4.24,3.1,1,0,"AlCoCrFeMgNi"],[-5.38,1.13,1,0,"AlCoCrFeMn"],[-2.62,1.66,1,-1,"AlCoCrFeMoNiRuTi"],[-3.15,1.63,1,-1,"AlCoCrFeMoNiTi"],[-5.53,0.58,1,0,"AlCoCrFeNiTi"],[-2.72,5.27,1,0,"AlCoCrLiMn"],[-3.97,3.09,1,0,"AlCoCrMgZn"],[-5.68,1.24,1,0,"AlCoCrMnNi"],[-4.76,3.04,1,0,"AlCoCuFeMgNi"],[-5.97,1.75,1,0,"AlCoCuFeMnNi"],[-5.85,0.63,1,0,"AlCoCuFeNi"],[-3.24,6.28,1,0,"AlCoCuLiMgZn"],[-4.68,3.27,1,0,"AlCoCuMgZn"],[-6.16,1.4,1,-1,"AlCoCuNiZn"],[-5.28,0.82,1,-1,"AlCoFeGaNi"],[-5.07,1.76,1,0,"AlCoFeGaZn"],[2.11,8.1,1,5,"AlCoFeMgMnNaNiTi"],[-6.09,1.91,1,0,"AlCoFeNiZn"],[-2.3,6.63,1,-1,"AlCoLiMgMnNi"],[-3.83,2.59,1,0,"AlCoMgNiTi"],[-5.78,1.57,1,-1,"AlCrCuFeMnNi"],[0.8,1.28,1,-1,"AlCrCuMoNbTiVW"],[4.35,2.72,1,1,"AlCrEuFeNiSc"],[6.07,3.87,1,1,"AlCrFeLaNiSc"],[-3.96,2.72,1,0,"AlCrFeMgMn"],[-4.42,3.1,1,0,"AlCrFeMgMnNi"],[-5.03,1.72,1,-1,"AlCrFeMnNiTi"],[-5.01,1.69,1,-1,"AlCrFeMnNiV"],[-5.57,2.49,1,0,"AlCrFeMnNiZn"],[-4.66,0.58,1,0,"AlCrFeMnTi"],[4.68,3.05,1,1,"AlCrFeNiPrSc"],[4.79,2.78,1,1,"AlCrFeNiScSm"],[-1.76,1.47,1,-1,"AlCrFeRhSc"],[0.48,-1.8,1,-1,"AlCrNbTaTi"],[1.73,0.09,1,-1,"AlCrNbTiY"],[-5.91,1.85,1,0,"AlCuFeNiZn"],[-2.6,2.6,1,-1,"AlCuMgScZn"],[6.77,0.45,1,1,"AlErEuNdSmY"],[3.08,7.77,1,5,"FeLiMnNaNiTi"],[-3.77,2.8,1,0,"AlFeMgNiTi"],[-4.31,3.78,1,-1,"AlFeMgNiZn"],[9.66,4.77,1,1,"AlHfNbPbTiZr"],[-1.05,3.95,1,-1,"AlMgSiTiZr"],[2.87,-0.17,1,-1,"AlTiVYZr"],[13.2,8.34,1,1,"BaBiCaKNaTi"],[12.68,8.29,1,1,"BaBiCaLaLiNaSrTi"],[12.29,5.52,1,1,"BaBiCaLaSrTi"],[12.14,8.43,1,1,"BaBiCaNaPbSrTi"],[13.57,5.61,1,1,"BaBiFeHfSrTiZr"],[10.66,6.49,1,1,"BaBiFeLaPrSr"],[11.54,11.23,1,1,"BaCaCeCoCrFeGeHfMnNiSiSnSrTiZr"],[3.66,6.99,1,0,"BaCaCoCrFeMgMnNiSr"],[9.99,8.5,1,1,"BaCaCoFeIrLaMnPdRuSr"],[9.19,3.48,1,-1,"BaCaCoGdY"],[9.64,4.52,1,1,"BaCaCoLaNdPrSr"],[8.69,5.68,1,1,"BaCaCoMgPrSmSr"],[10.28,5.0,1,1,"BaCaFeGdPrSr"],[11.64,8.0,1,1,"BaCaHfMgMnPbSnSrTiZr"],[12.38,7.34,1,1,"BaCaHfMgPbSnSrTiZr"],[12.73,6.19,1,1,"BaCaHfMgPbSrTiZr"],[9.66,7.12,1,1,"BaCaCoLaNaSr"],[11.64,4.38,1,1,"BaCaLaNaSrTi"],[11.67,4.2,1,1,"BaCaEuLaNaSrTi"],[9.51,4.82,1,1,"BaCaCoLaPrSr"],[9.19,4.65,1,1,"BaCaCoLaSrY"],[10.24,6.09,1,1,"BaCaLiMgSrTi"],[11.36,5.17,1,1,"BaCaLiNdSrTi"],[11.79,6.46,1,1,"BaCaMgPbSrTiZr"],[11.74,4.16,1,1,"BaCaNaSmSrTi"],[12.46,0.83,1,1,"BaCaNbSrYZr"],[3.55,7.9,1,0,"AlBaCdFeMgMnNi"],[8.72,3.6,1,1,"BaCeCoLaPrSr"],[10.69,-10.63,1,-1,"BaCeEuLaSm"],[13.25,-5.31,1,1,"BaCeGdPrYYbZr"],[13.26,-0.41,1,1,"BaCeGdSnYYbZr"],[13.88,4.01,1,1,"BaCeHfSnTiZr"],[12.37,2.52,1,1,"BaCeSmSnYZnZr"],[9.17,4.35,1,1,"BaCoCuLaPrSmSr"],[9.87,4.75,1,1,"BaCoFeGdLaNdSr"],[9.13,5.37,1,1,"BaCoFeLaNdNiPrSr"],[9.0,5.46,1,1,"BaCoFeLaNdNiSrY"],[9.59,4.56,1,1,"BaCoFeLaPrSmSr"],[9.47,4.7,1,1,"BaCoFeLaPrSrY"],[12.18,5.82,1,1,"BaCoFePrSnZr"],[10.36,5.96,1,1,"BaCoFeScSmSr"],[10.27,3.48,1,1,"BaCoGdLaNdPrSmSr"],[11.23,8.39,1,1,"BaCoRuSbSrTi"],[11.16,4.05,1,-1,"BaFeGdLaNdPrSm"],[11.01,3.87,1,1,"BaFeGdLaPrSmY"],[13.86,7.43,1,1,"BaFeNbSnTaTi"],[14.24,5.0,1,1,"BaFeNbTaTiZr"],[14.01,6.76,1,1,"BaFeSnTaTiZr"],[14.38,5.66,1,1,"BaFeTaTiVZr"],[11.22,5.56,1,1,"BaGaInSnSr"],[14.27,6.83,1,1,"BaGaNbSnTaTi"],[8.75,-0.42,1,1,"BaGdLaMnNdPrSr"],[11.52,7.38,1,1,"BaLaNaSnSrTi"],[13.7,4.72,1,1,"BaHfSnTiZr"],[12.31,4.67,1,-1,"BaKLiNaNbSr"],[9.56,3.52,1,1,"BaCoLaPrSmSr"],[13.45,3.92,1,1,"BaMnNbTaTiZr"],[14.01,5.28,1,1,"BaNbTaTiZnZr"],[14.01,5.54,1,1,"BaNbTaVYbZn"],[12.02,5.3,1,1,"BaSnSrTiZr"],[12.73,8.4,1,1,"BiCaCeKLaLiNaSrTi"],[2.9,-1.66,1,-1,"BiCdInSbSn"],[5.81,4.06,1,-1,"BiCeCuFePtW"],[8.02,0.12,1,4,"BiCeGdLaNdTi"],[9.67,0.22,1,3,"BiCeLaMoWZr"],[0.05,1.0,1,-1,"BiCoCuMnNi"],[4.38,2.42,1,-1,"BiCoNiPbPt"],[7.88,-0.87,1,-1,"BiCrEuLaY"],[6.43,2.14,1,-1,"BiFeGdInLaNdY"],[9.19,3.36,1,-1,"BiFeSrYZr"],[12.98,7.42,1,1,"BiKLaNaScSrTi"],[6.59,-1.58,1,-1,"BiNbTaTiZr"],[1.85,3.27,1,0,"CaCeCuFeLaMnNiZr"],[8.38,-5.36,1,3,"CaCeGdHfZr"],[10.76,3.93,1,1,"CaCeKLaNaTi"],[5.1,-0.23,1,3,"CaCeMnTiZr"],[-1.91,3.46,1,0,"CaCoCuFeMgNi"],[7.01,4.72,1,1,"CaCoFeLaNdNiSrY"],[3.58,8.72,1,5,"CaCoFeLiMnNaNiTi"],[-0.52,5.27,1,0,"CaCuFeMgNiZn"],[-0.96,2.63,1,0,"CaCuFeMnNiZr"],[0.78,4.41,1,2,"CaFeMgMnZn"],[8.23,4.85,1,1,"CaFeNbSnTaTi"],[5.48,4.99,1,-1,"CaGaGeScTb"],[5.4,-2.4,1,1,"CaGdLaMnPrSm"],[8.85,3.05,1,1,"CaNbSnTaTiZr"],[10.92,1.63,1,-1,"CaNbSrTaTi"],[-3.19,0.89,1,0,"CdCoFeMnNi"],[2.78,0.2,1,4,"CeCoCrFeMn"],[1.98,1.59,1,-1,"CeCoCuFeMo"],[-0.4,0.59,1,-1,"CeCoCuMnNi"],[5.23,9.06,1,5,"CeCoFeLiMnNaNiSnTi"],[0.96,3.0,1,3,"CeCoFeMgNi"],[6.99,0.36,1,-1,"CeCoLaRuSm"],[5.47,-0.48,1,4,"CeCrCuLaZr"],[7.69,-13.05,1,-1,"CeErGdLaSmYYb"],[7.6,-9.4,1,4,"CeErGdLaYYbZr"],[5.53,-4.98,1,3,"CeErHfSnZr"],[6.59,-6.17,1,3,"CeErHfTiYZr"],[7.12,-13.63,1,-1,"CeErLaNdYb"],[6.77,-9.95,1,3,"CeErNdYbZr"],[7.1,-14.65,1,-1,"CeEuGdLaPrSm"],[7.67,-8.99,1,3,"CeEuGdLaYbZr"],[6.8,-14.59,1,-1,"CeEuLaNdSm"],[7.38,-9.03,1,3,"CeEuLaYZr"],[6.82,-9.89,1,3,"CeEuPrSmZr"],[6.55,-9.55,1,3,"CeEuPrYZr"],[7.11,-3.2,1,3,"CeFeGdLaZr"],[7.72,-9.76,1,4,"CeGdHfLaNd"],[7.69,-9.81,1,4,"CeGdHfLaPr"],[7.13,-9.62,1,3,"CeGdHfPrY"],[7.06,-9.22,1,3,"CeGdHfPrZr"],[7.29,-9.34,1,3,"CeGdHoLaZr"],[6.4,-8.97,1,-1,"CeGdHoPrSc"],[7.26,-12.12,1,3,"CeGdLaLuY"],[9.17,-6.05,1,4,"CeGdLaNbTaYbZr"],[6.76,-14.56,1,3,"CeGdLaPrSm"],[7.43,-9.44,1,3,"CeGdLaPrZr"],[6.68,-14.16,1,4,"CeGdLaSmYb"],[6.85,-10.08,1,3,"CeGdPrSmYZr"],[7.91,-9.49,1,4,"CeHfLaNdPr"],[8.12,-4.48,1,-1,"CeHfLaTiYZr"],[7.91,-4.23,1,3,"CeHfLaTiZr"],[8.18,-8.35,1,3,"CeHfLaYZr"],[5.87,-4.62,1,3,"CeHfMgYZr"],[6.64,-6.92,1,-1,"CeHfNbTaZr"],[7.04,-8.82,1,-1,"CeHfPrYZr"],[6.47,-3.76,1,4,"CeHfTiVYZr"],[7.28,-0.02,1,-1,"CeLaNbTaZn"],[7.63,-9.29,1,3,"CeLaNdSmYZr"],[7.55,-9.77,1,3,"CeLaPrSmYZr"],[7.47,-9.35,1,3,"CeLaPrSmZr"],[7.11,-4.05,1,3,"CeLaPrSnY"],[7.7,-9.2,1,3,"CeLaSmYbZr"],[7.5,-9.03,1,3,"CeLaYYbZr"],[2.67,-0.67,1,3,"CeMgMnTiZr"],[-4.3,3.74,1,0,"CoCrCuFeGaMgMnNiTiZn"],[5.1,2.44,1,1,"CoCrCuFeLaNi"],[-4.86,1.3,1,0,"CoCrCuFeMg"],[-5.45,2.54,1,0,"CoCrCuFeMgMnNiZn"],[-5.22,2.14,1,2,"CoCrCuMgMnNiZn"],[6.18,2.9,1,1,"CoCrFeGdLaMnNdNiSmSrY"],[4.6,1.41,1,1,"CoCrFeGdLaMnNdNiSmY"],[2.01,0.39,1,1,"CoCrFeGdMnNi"],[-2.28,-1.92,1,-1,"CoCrFeIrRu"],[4.4,2.31,1,1,"CoCrFeLaMnNdNi"],[4.6,3.19,1,1,"CoCrFeLaMnZn"],[5.23,2.27,1,1,"CoCrFeLaNi"],[5.65,1.86,1,1,"CoCrFeLaNiSc"],[4.64,3.62,1,1,"CoCrFeLaNiZn"],[-2.51,4.28,1,0,"CoCrFeLiMg"],[-3.12,4.71,1,0,"CoCrFeLiMgNi"],[-3.21,5.27,1,0,"CoCrFeLiMnZn"],[-3.71,5.29,1,0,"CoCrFeLiNiZn"],[5.35,3.89,1,1,"CoCrFeLaMgNi"],[-3.57,-1.05,1,0,"CoCrFeMnMo"],[1.43,0.31,1,1,"CoCrFeHoMnNi"],[5.23,3.56,1,1,"CoCrFeMnNiPrSr"],[-3.29,0.9,1,0,"CoCrFeMnNiPt"],[5.28,5.61,1,1,"CoCrFeMnNiSr"],[-2.35,0.64,1,-1,"CoCrFeMnNiY"],[-4.9,-1.1,1,0,"CoCrFeMnRh"],[-5.42,-1.26,1,-1,"CoCrFeMnV"],[-3.45,-1.39,1,0,"CoCrFeMnZr"],[-4.21,-2.2,1,-1,"CoCrFeNbNi"],[-4.79,-1.92,1,0,"CoCrFeNiRu"],[-5.85,-1.72,1,0,"CoCrFeNiTi"],[6.25,3.88,1,1,"CoCrGaGeLaNi"],[-2.06,-2.36,1,-1,"CoCrIrNiRu"],[-5.69,-1.27,1,0,"CoCrMnNiTi"],[-2.37,1.52,1,-1,"CoCuFeIrMnNiV"],[5.42,6.01,1,1,"CoCuFeLaMgMnNiSnTiZn"],[-3.76,5.15,1,0,"CoCuFeLiMgZn"],[2.18,7.91,1,5,"CoCuFeLiMnNaNi"],[2.77,8.32,1,-1,"CoCuFeLiMnNaNiTi"],[-3.93,5.19,1,2,"CoCuFeLiNiZn"],[-5.01,1.39,1,0,"CoCuFeMgMn"],[-6.0,0.9,1,0,"CoCuFeMgMnNi"],[6.56,9.73,1,5,"CoCuFeKMgMnNiTi"],[2.51,8.51,1,5,"CoCuFeMnNaNiTiZn"],[-1.57,0.49,1,-1,"CoCuFeMnNiYZr"],[-2.12,2.11,1,-1,"CoCuFeMnNiWZn"],[-4.62,-2.0,1,-1,"CoCuFeNiRhRu"],[-6.02,-0.02,1,0,"CoCuFeGaNiZn"],[-3.41,5.2,1,-1,"CoCuGaLiMgNiZn"],[-0.35,6.15,1,-1,"CoCuGaMgNaNiZn"],[-0.88,5.83,1,5,"CoCuLiMgMnNbNiTi"],[-3.97,4.31,1,-1,"CoCuLiNiZn"],[-4.8,3.07,1,0,"AlCoCuMgMnNi"],[-5.09,1.48,1,2,"CoCuMgMnZn"],[-4.21,1.42,1,-1,"CoCuMgNiTiZn"],[-5.1,0.74,1,0,"CoCuFeMnMoZn"],[-0.19,5.68,1,-1,"CoCuMnNaZn"],[1.86,4.58,1,2,"CoCuNiSrZn"],[-5.8,-0.22,1,-1,"CoCuNiTiZn"],[6.83,1.07,1,1,"CoDyEuFeGdHoLaNdNiScSmTbTi"],[-3.67,-0.38,1,-1,"CoFeGaMoNi"],[4.72,1.43,1,1,"CoFeGdLaMnNdNiPr"],[-2.9,0.06,1,0,"CoFeIrMnNi"],[-2.86,-1.95,1,-1,"CoFeIrNiRu"],[4.27,2.32,1,1,"CoFeLaMnNi"],[5.24,3.26,1,1,"CoFeLaMnNiRu"],[6.89,3.97,1,1,"CoFeLaNiPrSr"],[6.97,4.63,1,1,"CoFeLaNiSr"],[4.43,9.18,1,5,"CoFeLiMnNaNiSnTi"],[-3.52,4.69,1,0,"CoFeLiMnNi"],[1.85,5.08,1,1,"CaCoFeMgMnNi"],[-4.92,3.17,1,0,"AlCoFeMgMnNi"],[3.25,1.5,1,1,"CoFeMnNdNi"],[-4.9,-0.91,1,0,"CoFeMnNiRu"],[-4.22,-0.01,1,-1,"CoFeMnNiSn"],[3.04,7.43,1,5,"CoFeMnNaNiTi"],[-5.87,-0.73,1,-1,"CoFeMnNiTi"],[-3.31,-0.51,1,-1,"CoFeMnMoNiZn"],[6.94,5.84,1,1,"CoFeMnSrTiV"],[-5.13,0.37,1,0,"CoFeMnTiZn"],[11.51,7.31,1,1,"BaCoFeNiSrTaZr"],[-5.86,0.46,1,0,"CoFeNiVZn"],[-1.89,1.71,1,-1,"CoFeNiYZn"],[2.22,0.79,1,-1,"CoGdIrMnRu"],[7.55,1.67,1,1,"CoLaNdPrSmSr"],[-2.11,4.15,1,0,"CoLiMgMnVZn"],[-3.37,6.25,1,0,"AlCoLiMgNiZn"],[-2.99,2.48,1,0,"CoMgMnNiSnZn"],[2.17,6.46,1,5,"CoMgMnNaNiTi"],[-4.09,1.67,1,-1,"CoMgMnNiTiZn"],[4.34,8.94,1,1,"CoKMgMnNiZn"],[-3.82,2.52,1,-1,"CoMgMnNiVZn"],[-4.23,1.18,1,-1,"CoMgNiTiZn"],[6.83,5.85,1,1,"CoMnMoNiSr"],[6.38,5.52,1,1,"CoMnNiRuSr"],[-1.42,-1.52,1,-1,"CoMnNiRuTa"],[0.75,-3.1,1,-1,"CoMoNbVW"],[-1.8,-2.51,1,-1,"CoNbNiTiZr"],[-4.53,1.54,1,0,"CrCuFeMgMn"],[-4.93,1.62,1,-1,"CrCuFeMgMnNi"],[6.66,7.08,1,1,"CrCuFeMnMoNiSr"],[4.67,-3.72,1,1,"CrDyEuGdHoTb"],[5.33,-3.64,1,1,"CrEuGdHoSmYb"],[-2.34,5.22,1,0,"CrFeLiMnTiZn"],[-4.81,2.57,1,0,"CrFeMgMnNiZn"],[-4.14,2.07,1,0,"CrFeMgMnZn"],[-5.92,-0.94,1,0,"CrFeMnNiV"],[-3.51,-2.15,1,0,"CrFeMoNiRu"],[0.66,-2.14,1,-1,"CrFeTaTiVW"],[6.09,-2.79,1,1,"CrLaNdPrSmY"],[-2.9,-3.35,1,-1,"CrMnNbTiV"],[0.32,-1.68,1,-1,"CuFeHfTiZr"],[5.53,3.84,1,1,"CuFeLaMgMnTi"],[-4.18,1.38,1,0,"CuFeMgNiTi"],[-4.9,-0.84,1,-1,"CuFeMnNiRu"],[-3.67,0.12,1,0,"CuFeMnZnZr"],[-5.66,0.28,1,0,"CuFeNiTiZn"],[3.21,7.46,1,5,"CuLiMgMnNaNiTi"],[1.91,-3.44,1,-1,"CuNbTaTiZr"],[3.8,-1.95,1,1,"DyErFeHoTb"],[5.0,-10.49,1,3,"DyErGdHoTmZr"],[10.73,2.42,1,1,"BaCuDyErGdHoY"],[5.96,-10.68,1,3,"DyErGdHoYbZr"],[6.88,-15.0,1,-1,"DyErGdLaSm"],[5.84,-10.15,1,3,"DyErGdSmTmZr"],[2.29,-4.58,1,-1,"DyErHoLuRhRuTm"],[5.73,4.28,1,5,"DyErHoLuScSiTbYYb"],[5.16,-13.69,1,-1,"DyErHoLuTmYYb"],[6.54,-7.88,1,-1,"DyErHoNbYYb"],[8.07,-7.73,1,-1,"DyErHoNdTaY"],[4.19,-1.3,1,1,"DyErFeHoSmTm"],[7.08,-14.77,1,-1,"DyErLaNdSm"],[7.26,-13.45,1,-1,"DyErLaSmY"],[5.6,-14.36,1,-1,"DyErTbYYb"],[6.06,-10.35,1,3,"DyErHfTmYYb"],[14.34,-4.31,1,-1,"DyEuGdHoKNd"],[7.26,-7.44,1,4,"DyEuGdHoLaScTbZr"],[9.38,-8.56,1,4,"DyEuGdLaNdSmTaYb"],[6.67,-14.83,1,-1,"DyEuGdLaSm"],[6.34,-9.28,1,3,"DyEuGdHfTbTmZr"],[6.11,4.99,1,-1,"DyEuLuSiSmTb"],[5.6,-10.31,1,-1,"DyGdHoScTb"],[5.11,-14.72,1,-1,"DyGdHoTbY"],[5.93,-13.88,1,-1,"DyGdLuYYb"],[7.86,-8.33,1,4,"DyGdLuTaYYb"],[5.54,-0.45,1,4,"DyGeHfSnTiZr"],[8.42,-8.74,1,3,"DyHfLaPrZr"],[4.06,-4.71,1,1,"DyHoLaMnTbY"],[7.09,-13.54,1,-1,"DyNdPrYYb"],[7.13,-1.85,1,1,"CuErEuLaNdPr"],[8.88,-8.0,1,-1,"ErEuLaSmTaYb"],[8.25,-6.72,1,3,"ErEuLuNbSmTaYYb"],[5.67,4.1,1,4,"ErGdHoLuSiYb"],[6.19,-5.08,1,4,"ErGdHoTiYYb"],[5.9,-13.85,1,-1,"ErGdLuYYb"],[5.23,4.26,1,5,"ErGdScSiTmYb"],[5.62,-9.94,1,4,"ErGdTmYYbZr"],[8.45,-8.75,1,3,"ErHfLaPrZr"],[6.48,-9.98,1,3,"ErHfLuYYbZr"],[4.93,4.52,1,4,"ErHoLuScSiYb"],[5.49,3.13,1,-1,"ErHoScSiTmYb"],[5.22,4.09,1,5,"ErHoSiYYb"],[2.52,-5.49,1,4,"ErLuMnTmYYb"],[5.01,-4.66,1,1,"EuGdLaMnNdSm"],[7.37,-8.79,1,4,"EuGdLaSmYZr"],[13.93,-3.38,1,-1,"EuHoKNdTmYb"],[6.64,-15.49,1,3,"EuLaNdPrSm"],[9.35,-2.33,1,-1,"EuLaPrSmWY"],[6.87,-13.26,1,-1,"EuNdSmYYb"],[1.76,-0.15,1,1,"FeGaInMnY"],[0.29,-0.15,1,-1,"FeGeSnTaTi"],[0.94,2.14,1,-1,"FeInSnWZn"],[6.23,0.04,1,1,"FeLaNdPrSm"],[3.33,8.39,1,5,"CaFeLiMgMnNaNiTi"],[-4.87,2.29,1,0,"FeMgMnNiZn"],[-3.09,-1.84,1,-1,"FeMoNiRuV"],[8.21,6.35,1,1,"FeMoNiSrTiV"],[10.72,6.11,1,1,"FeNbSnSrTaTi"],[14.33,5.77,1,1,"BaGaHfNbSnTiZr"],[11.15,5.53,1,1,"GaNbSnSrTaTi"],[8.23,-9.91,1,4,"GdHfLaNdPr"],[8.71,-4.22,1,4,"GdHfLaNdPrSmSnYYbZr"],[6.54,-6.18,1,3,"GdHfLuTiZr"],[4.52,-0.83,1,1,"GdLaMnNdNiSmY"],[4.65,-4.76,1,1,"GdLaMnNdSmY"],[9.47,-6.25,1,-1,"GdLaNbSmTaYYb"],[10.52,3.28,1,1,"BaCoGdLaNdPrSm"],[6.68,-3.1,1,4,"GdLaNdPrSmSn"],[7.6,-8.96,1,4,"GdLaNdSmYZr"],[7.94,-8.96,1,3,"GdLaNdSmYbZr"],[7.37,-8.95,1,4,"GdLaYYbZr"],[5.09,-10.51,1,3,"GdNdPrSmYZr"],[8.46,-7.79,1,4,"GdSmTaYYb"],[8.54,1.8,1,4,"GeHfLaSnTiZr"],[8.33,-8.41,1,3,"HfHoLaPrZr"],[7.95,-8.11,1,3,"HfLaPrTmZr"],[10.93,3.3,1,1,"HfLaSnSrTiZr"],[9.35,4.19,1,1,"HfMgNbPbTiZr"],[8.3,2.92,1,1,"HfMnNbPbTiZr"],[8.02,-0.86,1,4,"HfNbNdSnTiZr"],[2.4,-4.06,1,-1,"HfNbNiTaTiZr"],[11.18,3.6,1,1,"HfNbSnSrTiZr"],[8.51,2.67,1,1,"CaHfNbSnTiZr"],[11.53,2.06,1,1,"HfNbSrTiVZr"],[2.17,-2.65,1,-1,"HfNbTaTiZn"],[8.37,-1.57,1,4,"HfNdScSnTaZr"],[8.68,2.28,1,1,"HfPbSnTiZr"],[10.86,2.75,1,1,"HfSnSrTiYZr"],[9.87,5.11,1,1,"HfSnSrTiZnZr"],[4.79,4.84,1,-1,"HoLuScSiTmYb"],[3.53,-3.67,1,-1,"InNbTaTiZr"],[9.2,-8.22,1,4,"GdLaLuNdPrTaYb"],[7.58,-8.64,1,4,"LaLuNdYYbZr"],[8.18,-0.33,1,-1,"LaNbTiWZr"],[9.31,-4.06,1,4,"LaNbTiYYbZr"],[1.41,-6.21,1,-1,"MoNbTaVW"],[3.04,-4.98,1,-1,"NbTaTiWZr"],[1.88,-2.5,1,-1,"NbTaTiZnZr"]];
+  const FAM = { '0': ['--co', 'spinelle', 'spinel'], '1': ['--fe', 'pérovskite', 'perovskite'], '2': ['--ni', 'sel gemme', 'rock salt'], '3': ['--cr', 'fluorine', 'fluorite'], '4': ['--mn', 'pyrochlore', 'pyrochlore'], '5': ['--teal', 'lamellaire', 'layered'], '-1': ['--ink-3', 'non précisée', 'unspecified'] };
+  const hidden = new Set();
+  const XD = [-8.6, 15.6], YD = [-17, 12.6];
+  let W = 0, H = 0, DPR = 1, pts = [];
+  const NOTE = { CoCrFeMnNi: '(FeCoNiCrMn)₃O₄', CoCuMgNiZn: '(MgCoNiCuZn)O' };
+  function layout() {
+    const r = cv.getBoundingClientRect(); if (!r.width) return;
+    W = r.width; H = r.height; DPR = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+    const pad = 22, k = clamp(W / 640, .62, 1.1);
+    const fx = v => pad + (v - XD[0]) / (XD[1] - XD[0]) * (W - 2 * pad);
+    const fy = v => H - pad - (v - YD[0]) / (YD[1] - YD[0]) * (H - 2 * pad);
+    pts = DATA.map(([x, y, n, f, sys]) => ({ x: fx(x), y: fy(y), n, f: String(f), sys, r: (1.7 + Math.sqrt(n) * 1.3) * k }));
+    draw();
+  }
+  function draw() {
+    if (!W) return;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.clearRect(0, 0, W, H);
+    const col = {}; Object.keys(FAM).forEach(f => { col[f] = toRgb(cssVar(FAM[f][0], card)); });
+    const surf = cssVar('--surface', card), ink = cssVar('--ink', card), ink3 = toRgb(cssVar('--ink-3', card));
+    ctx.strokeStyle = rgba(ink3, .6); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(10, H - 10); ctx.lineTo(54, H - 10); ctx.moveTo(10, H - 10); ctx.lineTo(10, H - 54); ctx.stroke();
+    ctx.fillStyle = rgba(ink3, 1); ctx.font = '500 10.5px "Geist Mono", ui-monospace, monospace';
+    ctx.fillText(lang() === 'en' ? 'PC 1' : 'CP 1', 60, H - 7);
+    ctx.save(); ctx.translate(14, H - 60); ctx.rotate(-Math.PI / 2); ctx.fillText(lang() === 'en' ? 'PC 2' : 'CP 2', 0, 0); ctx.restore();
+    pts.forEach(p => {
+      if (hidden.has(p.f)) return;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+      ctx.fillStyle = rgba(col[p.f], p.f === '-1' ? .42 : .74); ctx.fill();
+      ctx.lineWidth = 1; ctx.strokeStyle = surf; ctx.stroke();
+    });
+    pts.forEach(p => {
+      const label = NOTE[p.sys]; if (!label || p.n < 50 || hidden.has(p.f)) return;
+      const up = p.sys === 'CoCuMgNiZn';
+      const lx = p.x + p.r + 26, ly = up ? p.y - p.r - 22 : p.y + p.r + 30;
+      ctx.strokeStyle = ink; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r + 3.5, 0, 6.2832); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(p.x + (p.r + 3.5) * .72, p.y + (up ? -1 : 1) * (p.r + 3.5) * .7); ctx.lineTo(lx - 4, ly - 4); ctx.stroke();
+      const text = `${label} · ${p.n}`;
+      ctx.font = '600 12.5px -apple-system, BlinkMacSystemFont, "Geist", sans-serif';
+      ctx.lineJoin = 'round'; ctx.lineWidth = 4; ctx.strokeStyle = surf; ctx.strokeText(text, lx, ly);
+      ctx.fillStyle = ink; ctx.fillText(text, lx, ly);
+    });
+  }
+  function pick(x, y) {
+    for (let i = pts.length - 1; i >= 0; i--) { const p = pts[i]; if (hidden.has(p.f)) continue; if (Math.hypot(p.x - x, p.y - y) <= p.r + 4) return p; }
+    return null;
+  }
+  cv.addEventListener('pointermove', e => {
+    const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top, p = pick(x, y);
+    if (!p) { tip.hidden = true; cv.style.cursor = 'default'; return; }
+    cv.style.cursor = 'pointer';
+    const E = lang() === 'en', fam = FAM[p.f][E ? 2 : 1];
+    tip.innerHTML = '';
+    const b = document.createElement('b'); b.textContent = (p.sys.match(/[A-Z][a-z]?/g) || [p.sys]).join(' · ');
+    const s = document.createElement('span'); s.textContent = `${fam} · ${num(p.n)} ${E ? (p.n > 1 ? 'samples' : 'sample') : (p.n > 1 ? 'échantillons' : 'échantillon')}`;
+    tip.append(b, s); tip.hidden = false;
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    tip.style.left = clamp(x + 14, 0, Math.max(0, W - tw)) + 'px';
+    tip.style.top = clamp(y - th - 12, 0, Math.max(0, H - th)) + 'px';
+  });
+  cv.addEventListener('pointerleave', () => { tip.hidden = true; });
+  $$('#map-chips .chip').forEach(c => c.addEventListener('click', () => {
+    const f = c.dataset.f; if (hidden.has(f)) hidden.delete(f); else hidden.add(f);
+    c.setAttribute('aria-pressed', String(!hidden.has(f))); tip.hidden = true; draw();
+  }));
+  if ('ResizeObserver' in window) new ResizeObserver(layout).observe(cv); else addEventListener('resize', layout);
+  layout(); themeCbs.push(draw); langCbs.push(draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+})();
+
+/* ---------- heo-platform v1.1 : computed layer ---------- */
+(function phys() {
+  const box = $('#subs'); if (!box) return;
+  // RAPPORT_plateforme_HEO.md §12.2: E_vac mean ± standard error over 8 O sites, predicted lattice, P(rock salt) §11.3
+  const SUB = [
+    { s: null, g: 'ref', e: 3.00, se: .10, a: 8.338, p: .12 },
+    { s: 'Al', g: 'tri', e: 2.85, se: .18, a: 8.243, p: .05 },
+    { s: 'Ga', g: 'tri', e: 2.76, se: .09, a: 8.317, p: .07 },
+    { s: 'Mg', g: 'di', e: 2.40, se: .05, a: 8.314, p: .49 },
+    { s: 'Cu', g: 'di', e: 2.08, se: .11, a: 8.286, p: .66 },
+    { s: 'Zn', g: 'di', e: 2.03, se: .05, a: 8.316, p: .40 }
+  ];
+  const E0 = 1.8, E1 = 3.3, pos = v => ((v - E0) / (E1 - E0) * 100).toFixed(2) + '%';
+  let sel = 0;
+  const label = d => d.s ? `Cr → ${d.s}` : (lang() === 'en' ? 'Reference' : 'Référence');
+  function renderSubs() {
+    box.textContent = '';
+    SUB.forEach((d, i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'srow ' + d.g; b.setAttribute('aria-pressed', String(i === sel));
+      const l = document.createElement('span'); l.className = 'slab'; l.textContent = label(d);
+      const t = document.createElement('span'); t.className = 'strack';
+      const er = document.createElement('i'); er.className = 'err'; er.style.left = pos(d.e - d.se); er.style.width = ((2 * d.se) / (E1 - E0) * 100).toFixed(2) + '%';
+      const dot = document.createElement('i'); dot.className = 'dot'; dot.style.left = pos(d.e);
+      t.append(er, dot);
+      const v = document.createElement('span'); v.className = 'sval'; v.textContent = `${num(d.e, 2)} eV`;
+      b.append(l, t, v);
+      b.addEventListener('click', () => { sel = i; renderSubs(); });
+      b.addEventListener('mouseenter', () => out(i));
+      b.addEventListener('mouseleave', () => out(sel));
+      b.addEventListener('focus', () => out(i));
+      box.appendChild(b);
+    });
+    out(sel);
+  }
+  function out(i) {
+    const d = SUB[i], E = lang() === 'en';
+    const name = d.s ? `Cr → ${d.s}` : '(FeCoNiCrMn)₃O₄';
+    $('#sub-out').textContent = `${name} · E_vac = ${num(d.e, 2)} ± ${num(d.se, 2)} eV · ${E ? 'lattice' : 'maille'} ${num(d.a, 3)} Å · P(${E ? 'rock salt' : 'sel gemme'}) = ${num(d.p, 2)}`;
+  }
+  const ticks = $('#sub-ticks');
+  [2, 2.5, 3].forEach((v, i, arr) => { const s = document.createElement('span'); s.style.left = pos(v); s.dataset.v = v; ticks.appendChild(s); });
+  const renderTicks = () => $$('span', ticks).forEach((s, i, arr) => { s.textContent = num(+s.dataset.v, 1) + (i === arr.length - 1 ? ' eV' : ''); });
+
+  // OER: ten published η10 for (FeCoNiCrMn)3O4 — data/thermo/oer_eta10_literature.csv
+  const OER = [[204, '10.1021/jacs.6c02539'], [219, '10.1021/acsami.4c21521'], [260, '10.1016/j.jcis.2023.05.043'], [263, '10.1016/j.jcis.2023.09.063'], [282, '10.1039/d5cc03852a'], [287, '10.1021/acs.inorgchem.3c02930'], [309, '10.21203/rs.3.rs-1879578/v1'], [323, '10.3390/catal15090827'], [341, '10.1007/s10853-024-09710-5'], [366, '10.3390/ma17143415']];
+  const svg = $('#oer'), NS = 'http://www.w3.org/2000/svg', oOut = $('#oer-out');
+  const X0 = 20, X1 = 400, V0 = 180, V1 = 380, sx = v => X0 + (v - V0) / (V1 - V0) * (X1 - X0), YA = 112;
+  const mk = (p, n, a, txt) => { const e = document.createElementNS(NS, n); Object.keys(a).forEach(k => e.setAttribute(k, a[k])); if (txt != null) e.textContent = txt; p.appendChild(e); return e; };
+  mk(svg, 'line', { x1: X0, x2: X1, y1: YA, y2: YA, class: 'ax' });
+  [200, 250, 300, 350].forEach(v => { mk(svg, 'line', { x1: sx(v), x2: sx(v), y1: YA, y2: YA + 5, class: 'ax' }); mk(svg, 'text', { x: sx(v), y: YA + 21, class: 'tk', 'text-anchor': 'middle' }, String(v)); });
+  mk(svg, 'text', { x: X1, y: YA + 38, class: 'tk', 'text-anchor': 'end' }, 'η₁₀ (mV)');
+  mk(svg, 'line', { x1: sx(204), x2: sx(366), y1: 22, y2: 22, class: 'rng' });
+  mk(svg, 'line', { x1: sx(204), x2: sx(204), y1: 16, y2: 28, class: 'rng' });
+  mk(svg, 'line', { x1: sx(366), x2: sx(366), y1: 16, y2: 28, class: 'rng' });
+  const rt = mk(svg, 'text', { x: (sx(204) + sx(366)) / 2, y: 12, class: 'rngt', 'text-anchor': 'middle' }, '');
+  let lastX = -99, lane = 0;
+  OER.forEach(([v, doi]) => {
+    const x = sx(v); lane = x - lastX < 18 ? 1 - lane : 0; lastX = x;
+    const a = mk(svg, 'a', { href: 'https://doi.org/' + doi, target: '_blank', rel: 'noopener' });
+    mk(a, 'title', {}, `${v} mV · doi ${doi}`);
+    mk(a, 'circle', { cx: x, cy: lane ? 60 : 80, r: 7.5 });
+    const show = () => { oOut.textContent = `η₁₀ = ${v} mV · doi:${doi}`; };
+    a.addEventListener('mouseenter', show); a.addEventListener('focus', show);
+  });
+  const oerIdle = () => { oOut.textContent = lang() === 'en' ? 'Ten papers, one per dot. Tap a dot to open the paper.' : 'Dix articles, un par point. Touchez un point pour ouvrir l’article.'; };
+  svg.addEventListener('mouseleave', oerIdle);
+
+  // Active learning proposals — data/next_experiments.csv (P(rock salt): classifier, CHGNet)
+  const AL = [
+    ['Cu Ga Mg Mn Zn', .53, .18, 'Le calcul prédit une spinelle', 'The calculation predicts a spinel'],
+    ['Co Cu Mg Mn Ni', .44, .88, 'Le calcul prédit un sel gemme', 'The calculation predicts a rock salt'],
+    ['Cr Cu Fe Mg Ni Zn', .62, .40, 'Frontière dans les deux modèles', 'Borderline in both models'],
+    ['Co Ga Mg Ni Zn', .33, .34, 'Les deux penchent vers la spinelle', 'Both lean towards spinel']
+  ];
+  const dumb = $('#dumb');
+  function renderAL() {
+    dumb.textContent = ''; const E = lang() === 'en';
+    AL.forEach(([c, pc, pt, vf, ve]) => {
+      const r = document.createElement('div'); r.className = 'drow';
+      const n = document.createElement('span'); n.className = 'comp'; n.textContent = c.split(' ').join(' · ');
+      const t = document.createElement('span'); t.className = 'dtrack'; t.setAttribute('role', 'img');
+      t.setAttribute('aria-label', `${E ? 'classifier' : 'classifieur'} ${num(pc, 2)}, CHGNet ${num(pt, 2)}`);
+      const lo = Math.min(pc, pt), hi = Math.max(pc, pt);
+      const ln = document.createElement('i'); ln.className = 'link'; ln.style.left = (lo * 100) + '%'; ln.style.width = ((hi - lo) * 100) + '%';
+      const m1 = document.createElement('i'); m1.className = 'm clf'; m1.style.left = (pc * 100) + '%';
+      const m2 = document.createElement('i'); m2.className = 'm chg'; m2.style.left = (pt * 100) + '%';
+      t.append(ln, m1, m2);
+      const v = document.createElement('span'); v.className = 'verdict'; v.textContent = `${E ? ve : vf} · ${E ? 'classifier' : 'classifieur'} ${num(pc, 2)}, CHGNet ${num(pt, 2)}`;
+      r.append(n, t, v); dumb.appendChild(r);
+    });
+  }
+  function all() { renderSubs(); renderTicks(); renderAL(); rt.textContent = lang() === 'en' ? '162 mV apart, same composition' : '162 mV d’écart, même composition'; oerIdle(); }
+  langCbs.push(all); all();
+})();
+
+/* ---------- Show lumière lamps ---------- */
+(function lamps() {
+  const box = $('#lamps'); if (!box) return;
+  const SHOWS = {"soiree-ambiance":[[5,2,["#ffb46b"],0,45],[6,3,["#1e3cff"],0,60],[5,3,["#ff4500","#ff8c00","#ff2d6f"],0,85],[4,2,["#ff4500","#ff8c00","#ff2d6f"],1,85],[4,2,["#ff4500","#ff8c00","#ff2d6f"],2,85],[6,3,["#8a2be2"],0,70],[3,1.5,["#ff0000","#ff7a00","#ffd400","#00d84a","#00c8ff","#2b50ff","#9b30ff"],0,90],[3,1.5,["#ff0000","#ff7a00","#ffd400","#00d84a","#00c8ff","#2b50ff","#9b30ff"],1,90],[3,1.5,["#ff0000","#ff7a00","#ffd400","#00d84a","#00c8ff","#2b50ff","#9b30ff"],2,90],[3,1.5,["#ff0000","#ff7a00","#ffd400","#00d84a","#00c8ff","#2b50ff","#9b30ff"],3,90],[1.5,0.1,["#f2f5ff"],0,100],[8,4,["#ffa04a"],0,35]],"chenillard-rouge":[[1.2,0.4,["#ff0000",0,"#2040ff",0],0,100],[1.2,0.4,["#ff0000",0,"#2040ff",0],1,100],[1.2,0.4,["#ff0000",0,"#2040ff",0],2,100],[1.2,0.4,["#ff0000",0,"#2040ff",0],3,100]],"halloween":[[4.034,2.017,["#7a00ff"],0,35],[2.017,0.504,["#ff5a00","#7a00ff"],0,80],[2.017,0.504,["#ff5a00","#7a00ff"],1,80],[2.017,0.504,["#ff5a00","#7a00ff"],0,80],[2.017,0.504,["#ff5a00","#7a00ff"],1,80],[1.008,0.504,["#f2f5ff"],0,5],[0.504,0.0,["#f2f5ff"],0,100],[0.504,0.0,["#f2f5ff"],0,5],[0.252,0.0,["#f2f5ff"],0,100],[0.756,0.0,[0],0,80],[1.008,0.101,["#c00000"],0,100],[1.008,0.403,["#c00000"],0,20],[1.008,0.101,["#c00000"],0,100],[1.008,0.403,["#c00000"],0,20],[1.008,0.252,["#39ff14",0,"#7a00ff"],0,85],[1.008,0.252,["#39ff14",0,"#7a00ff"],1,85],[1.008,0.252,["#39ff14",0,"#7a00ff"],2,85],[1.008,0.252,["#39ff14",0,"#7a00ff"],0,85],[1.008,0.151,["#cfe8ff",0,0],0,70],[1.008,0.151,["#cfe8ff",0,0],1,70],[1.008,0.151,["#cfe8ff",0,0],2,70],[1.008,0.151,["#cfe8ff",0,0],0,70],[1.008,0.504,["#ff5a00","#ff2a00","#ffb000"],0,90],[1.008,0.504,["#ff5a00","#ff2a00","#ffb000"],1,90],[0.252,0.0,["#f2f5ff"],0,100],[0.756,0.0,[0],0,80],[2.017,1.513,["#7a00ff"],0,35]],"noel":[[4.0,2.0,["#ffa04a"],0,45],[2.0,0.5,["#ff1020","#f2f5ff"],0,85],[2.0,0.5,["#ff1020","#f2f5ff"],1,85],[2.0,0.5,["#ff1020","#f2f5ff"],0,85],[2.0,0.5,["#ff1020","#f2f5ff"],1,85],[1.0,0.25,["#00c040","#ffb000","#00c040","#ff1020"],0,90],[1.0,0.25,["#00c040","#ffb000","#00c040","#ff1020"],1,90],[1.0,0.25,["#00c040","#ffb000","#00c040","#ff1020"],2,90],[1.0,0.25,["#00c040","#ffb000","#00c040","#ff1020"],3,90],[2.0,1.0,["#f2f5ff"],0,80],[1.0,0.5,["#f2f5ff","#7fd8ff"],0,75],[1.0,0.5,["#f2f5ff","#7fd8ff"],1,75],[1.0,0.5,["#f2f5ff","#7fd8ff"],0,75],[1.0,0.5,["#f2f5ff","#7fd8ff"],1,75],[1.0,0.15,["#ff1020","#00c040","#ffb000","#2b50ff"],0,100],[1.0,0.15,["#ff1020","#00c040","#ffb000","#2b50ff"],1,100],[1.0,0.15,["#ff1020","#00c040","#ffb000","#2b50ff"],2,100],[1.0,0.15,["#ff1020","#00c040","#ffb000","#2b50ff"],3,100],[2.0,0.5,["#ffb000"],0,100],[1.0,0.25,["#ffb000"],0,40],[1.0,0.25,["#ffb000"],0,100],[1.0,0.25,["#ffb000"],0,40],[1.0,0.25,["#ffb000"],0,100],[1.0,0.15,["#ff1020",0,0],0,100],[1.0,0.15,["#ff1020",0,0],1,100],[1.0,0.15,["#ff1020",0,0],2,100],[1.0,0.15,["#ff1020",0,0],0,100],[1.0,0.15,["#ff1020",0,0],1,100],[1.0,0.15,["#ff1020",0,0],2,100],[2.0,1.0,["#ff4500","#ff8c00","#ffa04a"],0,70],[2.0,1.0,["#ff4500","#ff8c00","#ffa04a"],1,70],[1.0,0.1,["#ff1020","#00c040"],0,100],[1.0,0.1,["#ff1020","#00c040"],1,100],[1.0,0.1,["#ff1020","#00c040"],0,100],[1.0,0.1,["#ff1020","#00c040"],1,100],[2.0,1.5,["#ffb46b"],0,50]]};
+  const L = $$('.lamp', box), OFF = [38, 39, 44];
+  const firstLit = steps => Math.max(0, steps.findIndex(s => s[2].filter(Boolean).length > 1 && s[4] >= 60));
+  let show = 'soiree-ambiance', i = firstLit(SHOWS[show]), timer = 0, inView = false;
+  function apply(step, instant) {
+    const [dur, fade, cols, shift, bri] = step, b = clamp(bri / 100, .15, 1);
+    L.forEach((el, k) => {
+      const c = cols[(k + shift) % cols.length];
+      el.style.transitionDuration = instant || reduced ? '0s' : `${Math.max(.08, fade)}s`;
+      if (!c) { el.style.setProperty('--lc', rgba(OFF)); el.style.setProperty('--g', '0'); }
+      else { el.style.setProperty('--lc', rgba(mix(OFF, toRgb(c), .25 + .75 * b))); el.style.setProperty('--g', String(b)); }
+    });
+    return dur;
+  }
+  function next() {
+    clearTimeout(timer); if (!inView || reduced) return;
+    const steps = SHOWS[show], dur = apply(steps[i]); i = (i + 1) % steps.length;
+    timer = setTimeout(next, Math.max(150, dur * 1000));
+  }
+  function choose(k) {
+    show = k; i = firstLit(SHOWS[k]);
+    $$('#show-pick button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.s === k)));
+    if (reduced || !inView) apply(SHOWS[k][i], true); else next();
+  }
+  $$('#show-pick button').forEach(b => b.addEventListener('click', () => choose(b.dataset.s)));
+  apply(SHOWS[show][i], true);
+  whenVisible(box, v => { inView = v; if (v) next(); else clearTimeout(timer); });
+})();
+
+/* ---------- Accueil TV ---------- */
+(function tv() {
+  const scr = $('#tv'); if (!scr) return;
+  const tiles = $$('.tile', scr), amb = $('#tv-amb');
+  let f = 0, timer = 0, inView = false, hover = false;
+  function focus(k) { f = k; tiles.forEach((t, j) => t.classList.toggle('on', j === k)); amb.style.backgroundColor = tiles[k].dataset.amb; }
+  function loop() { clearTimeout(timer); if (!inView || hover || reduced) return; timer = setTimeout(() => { focus((f + 1) % tiles.length); loop(); }, 2300); }
+  tiles.forEach((t, k) => {
+    t.addEventListener('mouseenter', () => { hover = true; clearTimeout(timer); focus(k); });
+    t.addEventListener('focus', () => { hover = true; clearTimeout(timer); focus(k); });
+    t.addEventListener('blur', () => { hover = false; loop(); });
+  });
+  scr.addEventListener('mouseleave', () => { hover = false; loop(); });
+  scr.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault(); const k = (f + (e.key === 'ArrowRight' ? 1 : tiles.length - 1)) % tiles.length; tiles[k].focus();
+  });
+  focus(2);
+  whenVisible(scr, v => { inView = v; if (v) loop(); else clearTimeout(timer); });
+})();
+
+/* ---------- copy e-mail ---------- */
+(function copy() {
+  const btn = $('#copy'), mail = $('#email'); if (!btn || !mail) return;
+  let state = '';
+  const label = () => { const E = lang() === 'en'; btn.textContent = state === 'ok' ? (E ? 'Copied' : 'Copié') : state === 'sel' ? (E ? 'Selected, copy it now' : 'Sélectionnée, copiez-la') : (E ? 'Copy' : 'Copier'); btn.dataset.state = state; };
+  const set = s => { state = s; label(); clearTimeout(btn._t); btn._t = setTimeout(() => { state = ''; label(); }, 2400); };
+  btn.addEventListener('click', () => {
+    const addr = mail.textContent.trim();
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); set('sel'); };
+    try { navigator.clipboard.writeText(addr).then(() => set('ok'), fallback); } catch (err) { fallback(); }
+  });
+  langCbs.push(label); label();
+})();
+
+onScroll();
+})();
+</script>
+</body>
+</html>
