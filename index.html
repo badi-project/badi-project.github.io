@@ -383,6 +383,9 @@ ol,ul{padding:0;list-style:none}
 .figs div>span{font-size:13px;color:var(--ink-2)}
 .pcard p.eyebrow{font-size:13px}
 .pcard .linkrow{margin-top:auto;padding-top:8px;font-size:16px}
+.pcard.wide{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px clamp(28px,5vw,64px);align-items:end}
+.pc-main,.pc-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (max-width:860px){.pcard.wide{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:860px){.proj{grid-template-columns:1fr}}
 
 /* path */
@@ -844,26 +847,21 @@ ol,ul{padding:0;list-style:none}
       <p class="eyebrow"><span class="fr">Projets</span><span class="en">Projects</span></p>
       <h2 class="h2"><span class="fr">Et aussi.</span><span class="en">Also.</span></h2>
     </div>
-    <div class="proj">
-      <article class="pcard lift">
+    <article class="pcard wide lift">
+      <div class="pc-main">
         <p class="eyebrow">Next.js · TypeScript · PostgreSQL</p>
         <h3><span class="fr">Prix des carburants</span><span class="en">Fuel prices, France</span></h3>
         <p><span class="fr">Les prix de près de 10&#8239;000 stations françaises sur une carte, avec un historique quotidien et la détection des vagues de hausse par enseigne et par département.</span><span class="en">Prices for about 10,000 French stations on a map, with daily history and detection of price-rise waves by brand and by département.</span></p>
-        <p class="detail"><span class="fr">Les données ouvertes ne donnent pas l’enseigne. Je la retrouve dans OpenStreetMap, dans un rayon de 50&nbsp;m autour de chaque station.</span><span class="en">The open data has no brand names. I recover them from OpenStreetMap, within 50&nbsp;m of each station.</span></p>
         <div class="linkrow"><a class="chev" href="https://github.com/badi-project/fuel-prices-fr" target="_blank" rel="noopener"><span class="fr">Voir le code</span><span class="en">View the code</span></a></div>
-      </article>
-      <article class="pcard lift">
-        <p class="eyebrow">JavaScript · GitHub Pages</p>
-        <h3><span class="fr">Guide de voyage</span><span class="en">Travel guide</span></h3>
-        <p><span class="fr">Un guide personnel généré à partir des métadonnées de ma photothèque.</span><span class="en">A personal guide generated from my photo library’s metadata.</span></p>
+      </div>
+      <div class="pc-side">
         <div class="figs">
-          <div><b>25</b><span><span class="fr">pays</span><span class="en">countries</span></span></div>
-          <div><b>318</b><span><span class="fr">villes</span><span class="en">cities</span></span></div>
-          <div><b><span class="fr">2&#8239;658</span><span class="en">2,658</span></b><span><span class="fr">lieux</span><span class="en">places</span></span></div>
+          <div><b><span class="fr">≈&nbsp;10&#8239;000</span><span class="en">≈&nbsp;10,000</span></b><span><span class="fr">stations suivies</span><span class="en">stations tracked</span></span></div>
+          <div><b><span class="fr">1×/jour</span><span class="en">1×/day</span></b><span><span class="fr">import des données officielles</span><span class="en">import of the official data</span></span></div>
         </div>
-        <div class="linkrow"><a class="chev" href="https://badi-project.github.io/guide-voyage/" target="_blank" rel="noopener"><span class="fr">Ouvrir le guide</span><span class="en">Open the guide</span></a><a class="chev" href="https://github.com/badi-project/guide-voyage" target="_blank" rel="noopener"><span class="fr">Voir le code</span><span class="en">View the code</span></a></div>
-      </article>
-    </div>
+        <p class="detail"><span class="fr">Les données ouvertes ne donnent pas l’enseigne. Je la retrouve dans OpenStreetMap, dans un rayon de 50&nbsp;m autour de chaque station.</span><span class="en">The open data has no brand names. I recover them from OpenStreetMap, within 50&nbsp;m of each station.</span></p>
+      </div>
+    </article>
   </div>
 </section>
 
